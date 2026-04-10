@@ -70,7 +70,13 @@ function renderFigures(figures) {
 
 function renderParagraphs(paragraphs) {
   if (!paragraphs || !paragraphs.length) return "";
-  return paragraphs.map((paragraph) => `<p>${escapeHtml(paragraph)}</p>`).join("");
+  return paragraphs
+    .map((paragraph) =>
+      typeof paragraph === "object" && paragraph.html
+        ? `<p>${paragraph.html}</p>`
+        : `<p>${escapeHtml(paragraph)}</p>`
+    )
+    .join("");
 }
 
 function renderBullets(bullets) {
@@ -87,48 +93,18 @@ function renderGrid(items) {
           (item) => `
             <div class="mini">
               <h4>${escapeHtml(item.title || "")}</h4>
-              <p>${escapeHtml(item.body || "")}</p>
+              ${item.body ? `<p>${escapeHtml(item.body)}</p>` : ""}
+              ${
+                item.bullets && item.bullets.length
+                  ? `<ul>${item.bullets.map((bullet) => `<li>${escapeHtml(bullet)}</li>`).join("")}</ul>`
+                  : ""
+              }
             </div>
           `
         )
         .join("")}
     </div>
   `;
-}
-
-function renderCharts(charts) {
-  if (!charts || !charts.length) return "";
-
-  return charts
-    .map((chart) => {
-      const values = (chart.series || []).map((item) => Number(item.value) || 0);
-      const max = Math.max(...values, 1);
-
-      return `
-        <div class="chart-block">
-          ${chart.title ? `<div class="chart-title">${escapeHtml(chart.title)}</div>` : ""}
-          ${chart.subtitle ? `<div class="chart-subtitle">${escapeHtml(chart.subtitle)}</div>` : ""}
-          <div class="chart-bars">
-            ${(chart.series || [])
-              .map((item) => {
-                const width = `${((Number(item.value) || 0) / max) * 100}%`;
-                return `
-                  <div class="chart-row">
-                    <div class="chart-label">${escapeHtml(item.label || "")}</div>
-                    <div class="chart-track">
-                      <div class="chart-bar" style="width: ${width}"></div>
-                    </div>
-                    <div class="chart-value">${escapeHtml(item.display || item.value || "")}</div>
-                  </div>
-                  ${item.supporting ? `<div class="chart-support">${escapeHtml(item.supporting)}</div>` : ""}
-                `;
-              })
-              .join("")}
-          </div>
-        </div>
-      `;
-    })
-    .join("");
 }
 
 function renderTable(table) {
@@ -192,21 +168,36 @@ function renderSections() {
 
   content.innerHTML = reportData.sections
     .map(
-      (section, index) => `
-        <section class="panel${index === 0 ? " active" : ""}" id="${escapeHtml(section.id)}">
-          <h2 class="section-title">${escapeHtml(section.title)}</h2>
-          ${section.lede ? `<div class="lede">${escapeHtml(section.lede)}</div>` : ""}
-          ${renderParagraphs(section.paragraphs)}
-          ${renderCards(section.cards)}
-          ${renderFigures(section.figures)}
-          ${renderGrid(section.grid)}
-          ${renderCharts(section.charts)}
-          ${renderBullets(section.bullets)}
-          ${renderTable(section.table)}
-          ${renderNotes(section.notes)}
-          ${renderSources(section.sources)}
-        </section>
-      `
+      (section, index) => {
+        const cards = renderCards(section.cards);
+        const figures = renderFigures(section.figures);
+        const grid = renderGrid(section.grid);
+        const bullets = renderBullets(section.bullets);
+        const table = renderTable(section.table);
+
+        return `
+          <section class="panel${index === 0 ? " active" : ""}" id="${escapeHtml(section.id)}">
+            <h2 class="section-title">${escapeHtml(section.title)}</h2>
+            ${
+              section.lede
+                ? `<div class="lede">${
+                    typeof section.lede === "object" && section.lede.html
+                      ? section.lede.html
+                      : escapeHtml(section.lede)
+                  }</div>`
+                : ""
+            }
+            ${renderParagraphs(section.paragraphs)}
+            ${cards}
+            ${figures}
+            ${section.tableFirst ? table : grid}
+            ${section.tableFirst ? grid : table}
+            ${bullets}
+            ${renderNotes(section.notes)}
+            ${renderSources(section.sources)}
+          </section>
+        `;
+      }
     )
     .join("");
 }
