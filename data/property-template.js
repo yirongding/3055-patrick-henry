@@ -823,31 +823,80 @@ window.REPORT_DATA = {
       id: "tax-assessed-value-analysis",
       label: "Tax-Assessed Value Analysis",
       title: "Tax-assessed value analysis",
+      lede:
+        "The county assessor PDFs saved in the local tax folder show three years of assessed-value history for 3055 Patrick Henry and four nearby Santa Clara reference properties. The charts below mirror the reference-site format by separating land value, improvement value, and net assessed value into distinct comparison views.",
       paragraphs: [
-        "The local tax materials show annual assessed land value, improvement value, total assessed value, and tax amount by year."
+        "Each line is drawn directly from the local county PDFs for 3055 Patrick Henry, 3000 Patrick Henry, 3100-3118 Patrick Henry, 4590 Patrick Henry, and 2518 Mission College."
       ],
       cards: [
-        { key: "2025-26 assessed value", value: "$32.77M", supporting: "Gross assessed value." },
-        { key: "2025-26 tax bill", value: "$390,442.80", supporting: "Annual secured tax amount in the local tax materials." },
-        { key: "Land assessment", value: "$16.50M", supporting: "2025-26 assessed land component." },
-        { key: "Improvement assessment", value: "$16.27M", supporting: "2025-26 assessed improvement component." }
+        { key: "3055 net assessed", value: "$32.77M", supporting: "County-reported 2025 assessed value for the subject." },
+        { key: "3055 change since 2023", value: "+$1.27M", supporting: "Subject net assessed value increased about 4.0% from 2023 to 2025." },
+        { key: "Nearby benchmark", value: "$18.24M", supporting: "4590 Patrick Henry 2025 net assessed value." },
+        { key: "Largest local basis", value: "$161.00M", supporting: "2518 Mission College 2025 net assessed value." }
       ],
-      table: {
-        columns: ["Tax year", "Land", "Improvements", "Total assessed", "Tax amount"],
+      assessmentCharts: [
+        {
+          chartId: "tax-chart-land-value",
+          title: "Land value",
+          takeaway:
+            "Land values rise steadily across the local set, with 2518 Mission College far above the Patrick Henry corridor parcels and 3055 sitting between 4590 Patrick Henry and the smaller redevelopment sites.",
+          years: ["2023", "2024", "2025"],
+          series: [
+            { label: "3055 Patrick Henry", color: "#aa566b", values: [15857867, 16175024, 16498524] },
+            { label: "3000 Patrick Henry", color: "#c9a24d", values: [3984029, 4063709, 4144983] },
+            { label: "3100-3118 Patrick Henry", color: "#4f7b6a", values: [3416463, 3484792, 3554487] },
+            { label: "4590 Patrick Henry", color: "#2f5d7c", values: [12088552, 12330323, 12576929] },
+            { label: "2518 Mission College", color: "#7e5aa6", values: [97035231, 98975935, 100955453] }
+          ]
+        },
+        {
+          chartId: "tax-chart-improvement-value",
+          title: "Improvement value",
+          takeaway:
+            "Improvement value makes the existing-building scale difference clearer: 3055 carries a much larger built-value basis than 3000 or 3100-3118, while 2518 Mission College remains the clear outlier in the local file set.",
+          years: ["2023", "2024", "2025"],
+          series: [
+            { label: "3055 Patrick Henry", color: "#aa566b", values: [15639139, 15951921, 16270959] },
+            { label: "3000 Patrick Henry", color: "#c9a24d", values: [2263652, 2308925, 2355103] },
+            { label: "3100-3118 Patrick Henry", color: "#4f7b6a", values: [2934055, 2992736, 3052590] },
+            { label: "4590 Patrick Henry", color: "#2f5d7c", values: [5439848, 5548644, 5659616] },
+            { label: "2518 Mission College", color: "#7e5aa6", values: [62633745, 63886419, 65164147] }
+          ]
+        },
+        {
+          chartId: "tax-chart-net-assessed-value",
+          title: "Net assessed value",
+          takeaway:
+            "On a net-assessed basis, 3055's 2025 value of $32.77M sits above the other Patrick Henry redevelopment references, below 2518 Mission College's campus-scale basis, and materially above the smaller 3000 and 3100-3118 parcels.",
+          years: ["2023", "2024", "2025"],
+          series: [
+            { label: "3055 Patrick Henry", color: "#aa566b", values: [31497006, 32126945, 32769483] },
+            { label: "3000 Patrick Henry", color: "#c9a24d", values: [8051307, 8302657, 8519350] },
+            { label: "3100-3118 Patrick Henry", color: "#4f7b6a", values: [6350518, 6477528, 6607077] },
+            { label: "4590 Patrick Henry", color: "#2f5d7c", values: [17528400, 17878967, 18236545] },
+            { label: "2518 Mission College", color: "#7e5aa6", values: [154751172, 157846193, 161003116] }
+          ]
+        }
+      ],
+      snapshotTable: {
+        columns: ["Property", "2025 land", "2025 improvements", "2025 net assessed", "2023-25 change"],
         rows: [
-          ["2025-2026", "$16,498,524", "$16,270,959", "$32,769,483", "$390,442.80"],
-          ["2024-2025", "$16,175,024", "$15,951,921", "$32,126,945", "$375,925.97"],
-          ["2023-2024", "$15,857,867", "$15,639,139", "$31,497,006", "$375,316.34"],
-          ["2022-2023", "$15,546,929", "$15,332,490", "$30,879,419", "$365,766.90"],
-          ["2021-2022", "$15,242,088", "$15,031,853", "$30,273,941", "$364,348.03"],
-          ["2020-2021", "$15,085,800", "$14,877,720", "$29,963,520", "$357,720.22"],
-          ["2019-2020", "$13,954,885", "$6,208,066", "$20,162,951", "$246,058.31" ]
+          ["3055 Patrick Henry", "$16,498,524", "$16,270,959", "$32,769,483", "+$1,272,477 / +4.0%"],
+          ["4590 Patrick Henry", "$12,576,929", "$5,659,616", "$18,236,545", "+$708,145 / +4.0%"],
+          ["3000 Patrick Henry", "$4,144,983", "$2,355,103", "$8,519,350", "+$468,043 / +5.8%*"],
+          ["3100-3118 Patrick Henry", "$3,554,487", "$3,052,590", "$6,607,077", "+$256,559 / +4.0%"],
+          ["2518 Mission College", "$100,955,453", "$65,164,147", "$161,003,116", "+$6,251,944 / +4.0%"]
         ]
       },
+      notes: [
+        "Net assessed value in the final chart follows the county's bottom-line figure in each PDF. At 3000 Patrick Henry that total includes business personal property; at 2518 Mission College the county record also shows an 'Other' deduction before arriving at the net figure."
+      ],
       sources: [
-        { label: "CompRedux workbook", url: "./sources-supporting-docs/CompRedux-3055-PATRICK-HENRY-DR-SANTA-CLARA-CA-95054-2026-04-08.xlsx" },
-        { label: "Tax bill PDF", url: "./sources-supporting-docs/TaxBill APN 104-04-136.pdf" },
-        { label: "CoStar property summary PDF", url: "./sources-supporting-docs/Costar Reports/property-summary.pdf" }
+        { label: "3055 Patrick Henry county assessor PDF", url: "./sources-supporting-docs/Tax info/3055 patrick henry.pdf" },
+        { label: "3000 Patrick Henry county assessor PDF", url: "./sources-supporting-docs/Tax info/3000 PATRICK HENRY DR.pdf" },
+        { label: "3100-3118 Patrick Henry county assessor PDF", url: "./sources-supporting-docs/Tax info/3100-3118 Patrick Henry Dr.pdf" },
+        { label: "4590 Patrick Henry county assessor PDF", url: "./sources-supporting-docs/Tax info/4590 PATRICK HENRY DR.pdf" },
+        { label: "2518 Mission College county assessor PDF", url: "./sources-supporting-docs/Tax info/2518 Mission College.pdf" }
       ]
     },
     {
