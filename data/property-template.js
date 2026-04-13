@@ -828,12 +828,6 @@ window.REPORT_DATA = {
       paragraphs: [
         "Each line is drawn directly from the local county PDFs for 3055 Patrick Henry, 3000 Patrick Henry, 3100-3118 Patrick Henry, 4590 Patrick Henry, and 2518 Mission College."
       ],
-      cards: [
-        { key: "3055 net assessed", value: "$32.77M", supporting: "County-reported 2025 assessed value for the subject." },
-        { key: "3055 change since 2023", value: "+$1.27M", supporting: "Subject net assessed value increased about 4.0% from 2023 to 2025." },
-        { key: "Nearby benchmark", value: "$18.24M", supporting: "4590 Patrick Henry 2025 net assessed value." },
-        { key: "Largest local basis", value: "$161.00M", supporting: "2518 Mission College 2025 net assessed value." }
-      ],
       assessmentCharts: [
         {
           chartId: "tax-chart-land-value",
