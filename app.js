@@ -169,6 +169,9 @@ function renderCustomHtml(section) {
 
 function renderAssessmentSection(section) {
   if (!section || !section.assessmentCharts || !section.assessmentCharts.length) return "";
+  const colorMap = Object.fromEntries(
+    (section.assessmentCharts[0]?.series || []).map((series) => [series.label, series.color])
+  );
 
   function renderChart(chart) {
     return `
@@ -200,7 +203,43 @@ function renderAssessmentSection(section) {
     `;
   }
 
-  const snapshotTable = section.snapshotTable ? renderTable(section.snapshotTable) : "";
+  function renderAssessmentSnapshotTable(table) {
+    if (!table || !table.columns || !table.rows) return "";
+
+    return `
+      <table>
+        <thead>
+          <tr>${table.columns.map((column) => `<th>${escapeHtml(column)}</th>`).join("")}</tr>
+        </thead>
+        <tbody>
+          ${table.rows
+            .map((row) => {
+              const property = row[0];
+              const color = colorMap[property] || "#6f6559";
+              return `
+                <tr>
+                  <td>
+                    <span class="tax-property-chip" style="--tax-chip-color:${escapeHtml(color)}">
+                      <span class="tax-property-chip-dot"></span>
+                      ${escapeHtml(property)}
+                    </span>
+                  </td>
+                  ${row.slice(1).map((cell) => `<td>${escapeHtml(cell)}</td>`).join("")}
+                </tr>
+              `;
+            })
+            .join("")}
+        </tbody>
+      </table>
+      ${
+        table.footnote
+          ? `<div class="tax-table-footnote">${escapeHtml(table.footnote)}</div>`
+          : ""
+      }
+    `;
+  }
+
+  const snapshotTable = section.snapshotTable ? renderAssessmentSnapshotTable(section.snapshotTable) : "";
 
   return `
     <div class="tax-analysis">
@@ -210,7 +249,7 @@ function renderAssessmentSection(section) {
           ? `
             <div class="tax-chart-card">
               <h3 class="project-subsection-title">Selected property snapshot</h3>
-              <p class="tax-chart-copy">Latest assessed values below are taken from the county PDFs in the local tax folder. The final column shows the 2023 to 2025 net-assessed change using each record's county-reported bottom line.</p>
+              <p class="tax-chart-copy">Latest assessed values below are based on Santa Clara County Assessor public data. The final column shows the 2023 to 2025 net-assessed change using each record's county-reported bottom line.</p>
               ${snapshotTable}
             </div>
           `
@@ -235,18 +274,16 @@ function initAssessmentCharts() {
         data: series.values,
         borderColor: series.color,
         backgroundColor: series.color,
-        borderWidth: 3,
-        pointRadius: 4,
-        pointHoverRadius: 6,
-        pointBackgroundColor: series.color,
-        pointBorderColor: "#ffffff",
-        pointBorderWidth: 2,
-        tension: 0.28
+        borderWidth: 1,
+        borderRadius: 6,
+        borderSkipped: false,
+        barPercentage: 0.82,
+        categoryPercentage: 0.72
       }));
 
       // eslint-disable-next-line no-new
       new window.Chart(canvas, {
-        type: "line",
+        type: "bar",
         data: {
           labels: chart.years,
           datasets
@@ -280,7 +317,7 @@ function initAssessmentCharts() {
                   const values = context.dataset.data || [];
                   const currentValue = Number(values[context.dataIndex]);
                   const previousValue = context.dataIndex > 0 ? Number(values[context.dataIndex - 1]) : null;
-                  if (!previousValue) return "Starting point in available local PDF history.";
+                  if (!previousValue) return "Starting point in available public-data history.";
                   const change = ((currentValue - previousValue) / previousValue) * 100;
                   return `${change.toFixed(1)}% year-over-year change`;
                 }

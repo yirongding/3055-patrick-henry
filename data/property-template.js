@@ -824,9 +824,9 @@ window.REPORT_DATA = {
       label: "Tax-Assessed Value Analysis",
       title: "Tax-assessed value analysis",
       lede:
-        "The county assessor PDFs saved in the local tax folder show three years of assessed-value history for 3055 Patrick Henry and four nearby Santa Clara reference properties. The charts below mirror the reference-site format by separating land value, improvement value, and net assessed value into distinct comparison views.",
+        "Santa Clara County Assessor public data show three years of assessed-value history for 3055 Patrick Henry and four nearby Santa Clara reference properties. The charts below mirror the reference-site format by separating land value, improvement value, and net assessed value into distinct comparison views.",
       paragraphs: [
-        "Each line is drawn directly from the local county PDFs for 3055 Patrick Henry, 3000 Patrick Henry, 3100-3118 Patrick Henry, 4590 Patrick Henry, and 2518 Mission College."
+        "Each line is drawn from Santa Clara County Assessor public data for 3055 Patrick Henry, 3000 Patrick Henry, 3100-3118 Patrick Henry, 4590 Patrick Henry, and 2518 Mission College."
       ],
       assessmentCharts: [
         {
@@ -880,17 +880,19 @@ window.REPORT_DATA = {
           ["3000 Patrick Henry", "$4,144,983", "$2,355,103", "$8,519,350", "+$468,043 / +5.8%*"],
           ["3100-3118 Patrick Henry", "$3,554,487", "$3,052,590", "$6,607,077", "+$256,559 / +4.0%"],
           ["2518 Mission College", "$100,955,453", "$65,164,147", "$161,003,116", "+$6,251,944 / +4.0%"]
-        ]
+        ],
+        footnote:
+          "* 3000 Patrick Henry's county-reported net assessed value includes business personal property, so its change figure is not perfectly apples-to-apples with the other rows."
       },
       notes: [
-        "Net assessed value in the final chart follows the county's bottom-line figure in each PDF. At 3000 Patrick Henry that total includes business personal property; at 2518 Mission College the county record also shows an 'Other' deduction before arriving at the net figure."
+        "Net assessed value in the final chart follows the county's bottom-line figure. At 3000 Patrick Henry that total includes business personal property; at 2518 Mission College the county record also shows an 'Other' deduction before arriving at the net figure."
       ],
       sources: [
-        { label: "3055 Patrick Henry county assessor PDF", url: "./sources-supporting-docs/Tax info/3055 patrick henry.pdf" },
-        { label: "3000 Patrick Henry county assessor PDF", url: "./sources-supporting-docs/Tax info/3000 PATRICK HENRY DR.pdf" },
-        { label: "3100-3118 Patrick Henry county assessor PDF", url: "./sources-supporting-docs/Tax info/3100-3118 Patrick Henry Dr.pdf" },
-        { label: "4590 Patrick Henry county assessor PDF", url: "./sources-supporting-docs/Tax info/4590 PATRICK HENRY DR.pdf" },
-        { label: "2518 Mission College county assessor PDF", url: "./sources-supporting-docs/Tax info/2518 Mission College.pdf" }
+        { label: "Santa Clara County Assessor public data — 3055 Patrick Henry", url: "./sources-supporting-docs/Tax info/3055 patrick henry.pdf" },
+        { label: "Santa Clara County Assessor public data — 3000 Patrick Henry", url: "./sources-supporting-docs/Tax info/3000 PATRICK HENRY DR.pdf" },
+        { label: "Santa Clara County Assessor public data — 3100-3118 Patrick Henry", url: "./sources-supporting-docs/Tax info/3100-3118 Patrick Henry Dr.pdf" },
+        { label: "Santa Clara County Assessor public data — 4590 Patrick Henry", url: "./sources-supporting-docs/Tax info/4590 PATRICK HENRY DR.pdf" },
+        { label: "Santa Clara County Assessor public data — 2518 Mission College", url: "./sources-supporting-docs/Tax info/2518 Mission College.pdf" }
       ]
     },
     {
