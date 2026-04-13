@@ -152,6 +152,11 @@ function renderSources(sources) {
   `;
 }
 
+function renderCustomHtml(section) {
+  if (!section || !section.customHtml) return "";
+  return `<div class="custom-section">${section.customHtml}</div>`;
+}
+
 function renderSections() {
   const tablist = document.getElementById("tablist");
   const content = document.getElementById("content");
@@ -174,6 +179,7 @@ function renderSections() {
         const grid = renderGrid(section.grid);
         const bullets = renderBullets(section.bullets);
         const table = renderTable(section.table);
+        const customHtml = renderCustomHtml(section);
 
         return `
           <section class="panel${index === 0 ? " active" : ""}" id="${escapeHtml(section.id)}">
@@ -192,6 +198,7 @@ function renderSections() {
             ${figures}
             ${section.tableFirst ? table : grid}
             ${section.tableFirst ? grid : table}
+            ${customHtml}
             ${bullets}
             ${renderNotes(section.notes)}
             ${renderSources(section.sources)}
