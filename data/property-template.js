@@ -5,9 +5,8 @@ window.REPORT_DATA = {
     summary:
       "Reference report for 3055 Patrick Henry Drive with property data, planning context, neighboring projects, market references, and source links by section.",
     pills: [
-      "Date: April 10, 2026",
-      "Format: Interactive property report",
-      "Status: Current draft"
+      "Date: April 14, 2026",
+      "Format: Interactive property report"
     ],
     disclaimer:
       "This report is for discussion purposes only and is not legal, zoning, valuation, tax, engineering, environmental, or investment advice. Facts shown here should be confirmed directly with the City of Santa Clara, Santa Clara County, title, seller materials, and current third-party market reports before any investment decision.",
