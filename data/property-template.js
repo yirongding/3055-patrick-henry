@@ -893,7 +893,7 @@ window.REPORT_DATA = {
       label: "Condo Sale Comps",
       title: "Condo sale comps",
       paragraphs: [
-        "Recent condo sale comps: this section summarizes condo comparables in ZIP code 95054, including current active listings, coming-soon listings, and sold listings since January 1, 2026, plus a location map for quick visual reference."
+        "Recent condo sale comps: this section summarizes condo comparables in ZIP code 95054, including current active listings, coming-soon listings, and sold listings since January 1, 2026, plus a location map for quick visual reference. Data as of April 12, 2026 — listing status and availability may change."
       ],
       customHtml: `
         <div class="project-subsection comp-group">
