@@ -256,7 +256,11 @@ window.REPORT_DATA = {
       title: "Multifamily market",
       paragraphs: [
         "Current published materials include a Santa Clara multifamily submarket report dated April 12, 2026 and a broader Bay Area multifamily market summary from CBRE.",
-        "The figures below separate Santa Clara submarket fundamentals from Bay Area-wide supply-and-demand totals."
+        "The figures below separate Santa Clara submarket fundamentals from Bay Area-wide supply-and-demand totals.",
+        {
+          className: "market-highlight",
+          html: "<strong>Supply-demand callout:</strong> Recent absorption is outpacing recent deliveries in both geographies. Santa Clara absorbed 1,286 units over the past 12 months versus 675 deliveries, while the Bay Area absorbed 11,316 units versus 8,371 deliveries in the current market read. In practical terms, demand has been strong enough to digest new product faster than supply is arriving, which supports the corridor's multifamily redevelopment story even as Santa Clara still carries a larger proposed pipeline."
+        }
       ],
       cards: [
         { key: "Santa Clara Absorption", value: "1,286 units", supporting: "Past 12 months, per CoStar Santa Clara submarket report." },
@@ -499,10 +503,10 @@ window.REPORT_DATA = {
               <div class="project-detail"><strong>Delivery timeline</strong>Not published.</div>
               <div class="project-detail"><strong>Latest known sale date</strong>December 2025.</div>
               <div class="project-detail"><strong>Latest known sold price</strong>$12,500,000.</div>
-              <div class="project-detail"><strong>Total unit count</strong>Not published.</div>
+              <div class="project-detail"><strong>Total unit count</strong>Approx. 252-375 units implied by Berkadia's stated zoning density of 100-149 units per developable acre across 2.52 acres; no specific filed program published.</div>
               <div class="project-detail"><strong>Unit mix</strong>Not published.</div>
-              <div class="project-detail"><strong>Height / scale</strong>37,180 SF RBA; 1 story; 2.52 acres; built 1981.</div>
-              <div class="project-detail"><strong>Program components</strong>Not published.</div>
+              <div class="project-detail"><strong>Height / scale</strong>37,180 SF RBA; 1 story; 2.52 acres; built 1981; zoning allows up to 160 feet.</div>
+              <div class="project-detail"><strong>Program components</strong>High-density residential redevelopment potential under the Patrick Henry Drive Specific Plan.</div>
               <div class="project-detail"><strong>Positioning</strong>Land-sale / redevelopment signal.</div>
               <div class="project-detail"><strong>Relationship to subject</strong>Same corridor; very near subject.</div>
               <div class="project-detail"><strong>Why it matters</strong>Confirms active land investment on Patrick Henry.</div>
@@ -528,6 +532,7 @@ window.REPORT_DATA = {
               <div class="project-detail"><strong>Property type / use</strong>Approved mixed-use residential redevelopment replacing an older flex / R&amp;D property.</div>
               <div class="project-detail"><strong>Status</strong>Approved.</div>
               <div class="project-detail"><strong>Delivery timeline</strong>Not published.</div>
+              <div class="project-detail"><strong>Latest sale date</strong>February 2022 transfer recorded in CoStar sales history.</div>
               <div class="project-detail"><strong>Latest known sale date</strong>August 2011 for the prior flex property.</div>
               <div class="project-detail"><strong>Latest known sold price</strong>$5,175,000 for the prior flex property.</div>
               <div class="project-detail"><strong>Total unit count</strong>307 dwelling units.</div>
@@ -614,20 +619,18 @@ window.REPORT_DATA = {
 
           <div class="project-profile">
             <h4>Comparison chart: top nearby projects</h4>
-            <div class="project-compare-table">
+            <div class="project-compare-table nearby-projects-table">
               <table>
                 <thead>
                   <tr>
                     <th>Property</th>
-                    <th>Previous Sale</th>
-                    <th>Price / SF</th>
+                    <th>Latest sale</th>
+                    <th>Previous known sale</th>
                     <th>Prior Building SF</th>
-                    <th>Building SF</th>
+                    <th>Price / SF</th>
                     <th>Lot (AC)</th>
                     <th>Units</th>
                     <th>Construction</th>
-                    <th>Address</th>
-                    <th>Unit mix</th>
                     <th>Developer / sponsor</th>
                   </tr>
                 </thead>
@@ -635,66 +638,56 @@ window.REPORT_DATA = {
                   <tr>
                     <td>3100-3118 Patrick Henry</td>
                     <td>Dec. 2025: $12,500,000</td>
-                    <td>$336.20/SF</td>
+                    <td>May 2000: $8,700,000</td>
                     <td>37,180 SF existing building</td>
-                    <td>37,180 SF</td>
+                    <td>$336.20/SF<div class="comp-cell-note">Based on latest sale.</div></td>
                     <td>2.52</td>
-                    <td>Not published</td>
-                    <td>Not published</td>
-                    <td>3100-3118 Patrick Henry Dr</td>
+                    <td>Approx. 252-375 units (implied zoning capacity)</td>
                     <td>Not published</td>
                     <td>JEMCOR Development Partners</td>
                   </tr>
                   <tr>
                     <td>3000 Patrick Henry</td>
+                    <td>Feb. 2022: Not published</td>
                     <td>Aug. 2011: $5,175,000</td>
-                    <td>$147.02/SF</td>
                     <td>35,200 SF prior flex building</td>
-                    <td>35,200 SF prior building</td>
+                    <td>$147.02/SF<div class="comp-cell-note">Based on previous known sale.</div></td>
                     <td>2.52</td>
                     <td>307</td>
-                    <td>Not published</td>
-                    <td>3000 Patrick Henry Dr</td>
                     <td>Not published</td>
                     <td>SummerHill Apartment Communities / Pactron Ventures</td>
                   </tr>
                   <tr>
                     <td>4590 Patrick Henry</td>
                     <td>Feb. 2020: $16,675,000</td>
-                    <td>$387.07/SF</td>
+                    <td>Not published</td>
                     <td>43,080 SF prior building</td>
-                    <td>300,000 SF proposed</td>
+                    <td>$387.07/SF<div class="comp-cell-note">Based on latest sale.</div></td>
                     <td>2.80</td>
                     <td>284</td>
                     <td>Jul. 2026 start / 2027 built</td>
-                    <td>4590 Patrick Henry Dr</td>
-                    <td>Studios, 1BR, 2BR</td>
                     <td>Walnut Hill Capital / Kasa Partners</td>
                   </tr>
                   <tr>
                     <td>2518 Mission College</td>
-                    <td>Jan. 2015: $9,682,451</td>
-                    <td>$430.33/SF</td>
+                    <td>Jan. 2015: $136,500,000</td>
+                    <td>May 2013: $96,200,000</td>
                     <td>22,500 SF prior office building</td>
-                    <td>1,700,000 SF proposed</td>
+                    <td>$319.45/SF<div class="comp-cell-note">Based on latest sale.</div></td>
                     <td>1.35 AC prior lot; proposed project land size 25.74 AC</td>
                     <td>1,792</td>
                     <td>Apr. 2026 start / 2028 built</td>
-                    <td>2518 Mission College Blvd</td>
-                    <td>15% affordable; bedroom mix not published</td>
                     <td>Irvine Company</td>
                   </tr>
                   <tr class="subject-row">
                     <td>3055 Patrick Henry</td>
+                    <td>Apr. 2018: Not published</td>
                     <td>Apr. 2016: $19,000,000</td>
-                    <td>$269.43/SF</td>
                     <td>70,520 SF building area</td>
-                    <td>70,520 SF</td>
+                    <td>$269.43/SF<div class="comp-cell-note">Based on previous known sale.</div></td>
                     <td>3.82</td>
                     <td>Not published</td>
                     <td>Existing 1981 flex building</td>
-                    <td>3055 Patrick Henry Dr</td>
-                    <td>Not applicable</td>
                     <td>3055 Patrick Henry Development, LLC / Z &amp; L Properties</td>
                   </tr>
                 </tbody>
@@ -750,10 +743,10 @@ window.REPORT_DATA = {
 
           <div class="project-subsection comp-group">
           <div class="project-profile">
-            <h3 class="project-subsection-title">30-mile radius sale comps</h3>
-            <p class="project-subsection-copy">CoStar sale comps for the subject property within a 30-mile radius.</p>
+            <h3 class="project-subsection-title">10-mile radius sale comps</h3>
+            <p class="project-subsection-copy">CoStar sale comps for the subject property within a 10-mile radius.</p>
             <div class="project-detail-grid">
-              <div class="project-detail"><strong>Radius</strong>30 miles from 3055 Patrick Henry Dr.</div>
+              <div class="project-detail"><strong>Radius</strong>10 miles from 3055 Patrick Henry Dr.</div>
               <div class="project-detail"><strong>Property type</strong>Flex.</div>
               <div class="project-detail"><strong>Building status</strong>Existing; under renovation.</div>
               <div class="project-detail"><strong>Property size</strong>35,260-141,040 SF.</div>
@@ -761,43 +754,43 @@ window.REPORT_DATA = {
               <div class="project-detail"><strong>Sale date</strong>Last 2 years.</div>
               <div class="project-detail"><strong>Excludes</strong>Condo sales, portfolio sales, non-arms length sales, partial interest transfer sales, public record sales.</div>
             </div>
-            <div class="project-compare-table">
+            <div class="project-compare-table sale-comp-table">
               <table>
                 <thead>
                   <tr>
                     <th>Address</th>
                     <th>Rating</th>
-                    <th>Year built</th>
+                    <th>Yr built</th>
                     <th>Size</th>
                     <th>Distance</th>
-                    <th>Sale date</th>
-                    <th>Sale price</th>
-                    <th>Price / SF</th>
-                    <th>Submarket</th>
+                    <th>Sale</th>
+                    <th>Price</th>
+                    <th>$ / SF</th>
+                    <th>Submkt</th>
                   </tr>
                 </thead>
                 <tbody>
-                  <tr><td>1010 Rincon Cir</td><td>3</td><td>1984</td><td>90,871 SF</td><td>4.01 mi</td><td>Jun 2024</td><td>$35,500,000</td><td>$390.66</td><td>North San Jose</td></tr>
+                  <tr><td>1010 Rincon Cir</td><td>3</td><td>1984</td><td>90,871 SF</td><td>4.01 mi</td><td>Jun 2024</td><td>$35,500,000</td><td>$390.66</td><td>N. San Jose</td></tr>
                   <tr><td>1195-1213 Elko Dr</td><td>2</td><td>1985</td><td>44,277 SF</td><td>0.85 mi</td><td>Jun 2024</td><td>$11,650,000</td><td>$263.12</td><td>Sunnyvale</td></tr>
                   <tr><td>3495 Deer Creek Rd</td><td>3</td><td>1979</td><td>81,031 SF</td><td>9.07 mi</td><td>Jul 2024</td><td>$55,964,000</td><td>$690.65</td><td>Palo Alto</td></tr>
-                  <tr><td>3939 N 1st St</td><td>3</td><td>1984</td><td>64,396 SF</td><td>2.04 mi</td><td>Sep 2024</td><td>$10,800,000</td><td>$167.71</td><td>North San Jose</td></tr>
+                  <tr><td>3939 N 1st St</td><td>3</td><td>1984</td><td>64,396 SF</td><td>2.04 mi</td><td>Sep 2024</td><td>$10,800,000</td><td>$167.71</td><td>N. San Jose</td></tr>
                   <tr><td>3176 Porter Dr</td><td>3</td><td>1991</td><td>42,899 SF</td><td>9.18 mi</td><td>Dec 2024</td><td>$24,800,000</td><td>$578.10</td><td>Palo Alto</td></tr>
-                  <tr><td>3550 N 1st St</td><td>3</td><td>2000</td><td>76,690 SF</td><td>2.33 mi</td><td>Feb 2025</td><td>$18,530,000</td><td>$241.62</td><td>North San Jose</td></tr>
-                  <tr><td>3200 Patrick Henry Dr</td><td>2</td><td>1978</td><td>105,120 SF</td><td>0.16 mi</td><td>Feb 2025</td><td>$18,000,000</td><td>$171.23</td><td>North Santa Clara</td></tr>
-                  <tr><td>3725 N 1st St</td><td>2</td><td>1970</td><td>70,656 SF</td><td>2.14 mi</td><td>Feb 2025</td><td>$27,000,000</td><td>$382.13</td><td>North San Jose</td></tr>
+                  <tr><td>3550 N 1st St</td><td>3</td><td>2000</td><td>76,690 SF</td><td>2.33 mi</td><td>Feb 2025</td><td>$18,530,000</td><td>$241.62</td><td>N. San Jose</td></tr>
+                  <tr><td>3200 Patrick Henry Dr</td><td>2</td><td>1978</td><td>105,120 SF</td><td>0.16 mi</td><td>Feb 2025</td><td>$18,000,000</td><td>$171.23</td><td>N. Santa Clara</td></tr>
+                  <tr><td>3725 N 1st St</td><td>2</td><td>1970</td><td>70,656 SF</td><td>2.14 mi</td><td>Feb 2025</td><td>$27,000,000</td><td>$382.13</td><td>N. San Jose</td></tr>
                   <tr><td>575 Cottonwood Dr</td><td>2</td><td>1985/2008</td><td>48,384 SF</td><td>3.78 mi</td><td>May 2025</td><td>$14,330,000</td><td>$296.17</td><td>Milpitas</td></tr>
-                  <tr><td>4750 Patrick Henry Dr</td><td>3</td><td>1979</td><td>65,360 SF</td><td>0.24 mi</td><td>Jun 2025</td><td>$19,850,000</td><td>$303.70</td><td>North Santa Clara</td></tr>
+                  <tr><td>4750 Patrick Henry Dr</td><td>3</td><td>1979</td><td>65,360 SF</td><td>0.24 mi</td><td>Jun 2025</td><td>$19,850,000</td><td>$303.70</td><td>N. Santa Clara</td></tr>
                   <tr><td>401 Whitney Pl</td><td>3</td><td>1982</td><td>72,776 SF</td><td>6.06 mi</td><td>Jun 2025</td><td>$27,100,000</td><td>$372.38</td><td>Fremont</td></tr>
-                  <tr><td>3200 N 1st St</td><td>4</td><td>1997</td><td>85,017 SF</td><td>2.55 mi</td><td>Jun 2025</td><td>$22,723,000</td><td>$267.28</td><td>North San Jose</td></tr>
-                  <tr><td>1321 Ridder Park Dr</td><td>2</td><td>1984</td><td>36,030 SF</td><td>4.51 mi</td><td>Sep 2025</td><td>$13,250,000</td><td>$367.75</td><td>San Jose-Berryessa</td></tr>
-                  <tr><td>2304-2306 Zanker Rd</td><td>3</td><td>1983</td><td>40,565 SF</td><td>3.67 mi</td><td>Oct 2025</td><td>$9,150,000</td><td>$225.56</td><td>North San Jose</td></tr>
+                  <tr><td>3200 N 1st St</td><td>4</td><td>1997</td><td>85,017 SF</td><td>2.55 mi</td><td>Jun 2025</td><td>$22,723,000</td><td>$267.28</td><td>N. San Jose</td></tr>
+                  <tr><td>1321 Ridder Park Dr</td><td>2</td><td>1984</td><td>36,030 SF</td><td>4.51 mi</td><td>Sep 2025</td><td>$13,250,000</td><td>$367.75</td><td>SJ-Berryessa</td></tr>
+                  <tr><td>2304-2306 Zanker Rd</td><td>3</td><td>1983</td><td>40,565 SF</td><td>3.67 mi</td><td>Oct 2025</td><td>$9,150,000</td><td>$225.56</td><td>N. San Jose</td></tr>
                   <tr><td>3350 W Bayshore Rd</td><td>2</td><td>1982</td><td>60,000 SF</td><td>7.53 mi</td><td>Dec 2025</td><td>$29,000,000</td><td>$483.33</td><td>Palo Alto</td></tr>
                   <tr><td>2710 Lakeview Ct</td><td>2</td><td>1987</td><td>80,354 SF</td><td>5.79 mi</td><td>Feb 2026</td><td>$28,800,000</td><td>$358.41</td><td>Fremont</td></tr>
-                  <tr class="subject-row"><td>3055 Patrick Henry Dr</td><td>3</td><td>1981</td><td>70,520 SF</td><td>0.00 mi</td><td>Apr 2016</td><td>$19,000,000</td><td>$269.43</td><td>North Santa Clara</td></tr>
+                  <tr class="subject-row"><td>3055 Patrick Henry Dr</td><td>3</td><td>1981</td><td>70,520 SF</td><td>0.00 mi</td><td>Apr 2016</td><td>$19,000,000</td><td>$269.43</td><td>N. Santa Clara</td></tr>
                 </tbody>
               </table>
             </div>
-            <div class="comp-note">Source: CoStar Sale Comp for subject.</div>
+            <div class="comp-note">Source: CoStar 10-mile sale comp set for subject.</div>
           </div>
           </div>
         </div>
@@ -806,17 +799,22 @@ window.REPORT_DATA = {
         { label: "Berkadia / citybiz coverage of 3100-3118 Patrick Henry sale", url: "https://www.citybiz.co/article/787736/berkadia-arranges-sale-of-residential-development-site-near-levis-stadium-in-santa-clara-california/" },
         { label: "Traded sale summary for 3100-3118 Patrick Henry", url: "https://traded.co/deals/california/office/sale/3100-3118-patrick-henry-drive/" },
         { label: "3100-3118 Patrick Henry CoStar report", url: "./sources-supporting-docs/Neighboring projects & comps/3100-3118 Patrick Henry Dr.pdf" },
+        { label: "CoStar sales history - 3100-3118 Patrick Henry Drive", url: "./sources-supporting-docs/Neighboring projects & comps/Sale History/3100-3118 Patrick Henry Dr.xlsx" },
         { label: "3000 Patrick Henry city project page", url: "https://www.santaclaraca.gov/Home/Components/BusinessDirectory/BusinessDirectory/493/2495?npage=3" },
         { label: "3000 Patrick Henry CoStar report", url: "./sources-supporting-docs/Neighboring projects & comps/3000-3030 Patrick Henry Dr.pdf" },
+        { label: "CoStar sales history - 3000 Patrick Henry Drive", url: "./sources-supporting-docs/Neighboring projects & comps/Sale History/3000 Patrick Henry Dr.xlsx" },
         { label: "4590 Patrick Henry city project page", url: "https://www.santaclaraca.gov/Home/Components/BusinessDirectory/BusinessDirectory/513/2495?fsiteid=1&npage=4" },
         { label: "4590 Patrick Henry proposed CoStar report", url: "./sources-supporting-docs/Neighboring projects & comps/4590 Patrick Henry Dr - Proposed.pdf" },
         { label: "4590 Patrick Henry old property CoStar report", url: "./sources-supporting-docs/Neighboring projects & comps/4590 Patrick Henry Dr - old property.pdf" },
+        { label: "CoStar sales history - 4590 Patrick Henry Drive", url: "./sources-supporting-docs/Neighboring projects & comps/Sale History/4590 Patrick Henry Dr.xlsx" },
         { label: "2518 Mission College city project page", url: "https://www.santaclaraca.gov/Home/Components/BusinessDirectory/BusinessDirectory/519/2571?npage=2" },
         { label: "2518 Mission College proposed CoStar report", url: "./sources-supporting-docs/Neighboring projects & comps/2518 Mission College Blvd - proposed.pdf" },
         { label: "2518 Mission College old property CoStar report", url: "./sources-supporting-docs/Neighboring projects & comps/2518 Mission College Blvd - old property.pdf" },
+        { label: "CoStar sales history - 2518 Mission College Boulevard", url: "./sources-supporting-docs/Neighboring projects & comps/Sale History/2518 Mission College Blvd.xlsx" },
+        { label: "CoStar sales history - 3055 Patrick Henry Drive", url: "./sources-supporting-docs/Neighboring projects & comps/Sale History/3055-patrick-henry.xlsx" },
         { label: "Related Santa Clara", url: "https://www.santaclaraca.gov/business-development/related-santa-clara" },
         { label: "Mission Point by Kylli", url: "https://www.santaclaraca.gov/Home/Components/BusinessDirectory/BusinessDirectory/245/2495?alpha=K" },
-        { label: "CoStar 30-mile radius flex property comps", url: "./sources-supporting-docs/Neighboring projects & comps/costar 30mi radius flex property comps.xlsx" }
+        { label: "CoStar 10-mile radius flex property comps", url: "./sources-supporting-docs/Neighboring projects & comps/costar 30mi radius flex property comps.xlsx" }
       ]
     },
     {
@@ -824,75 +822,70 @@ window.REPORT_DATA = {
       label: "Tax-Assessed Value Analysis",
       title: "Tax-assessed value analysis",
       lede:
-        "Santa Clara County Assessor public data show three years of assessed-value history for 3055 Patrick Henry and four nearby Santa Clara reference properties. The charts below mirror the reference-site format by separating land value, improvement value, and net assessed value into distinct comparison views.",
+        "Santa Clara County Assessor public data, compiled in the newly saved CompRedux workbooks, now show assessed-value history from 2014-2015 through 2025-2026 for 3055 Patrick Henry and four nearby Santa Clara reference properties.",
       paragraphs: [
-        "Each line is drawn from Santa Clara County Assessor public data for 3055 Patrick Henry, 3000 Patrick Henry, 3100-3118 Patrick Henry, 4590 Patrick Henry, and 2518 Mission College."
+        "The charts below track land value, improvement value, and net assessed value separately so the longer-term basis step-ups are easier to read across the full eleven-to-twelve-year history."
       ],
       assessmentCharts: [
         {
           chartId: "tax-chart-land-value",
           title: "Land value",
           takeaway:
-            "Land values rise steadily across the local set, with 2518 Mission College far above the Patrick Henry corridor parcels and 3055 sitting between 4590 Patrick Henry and the smaller redevelopment sites.",
-          years: ["2023", "2024", "2025"],
+            "Over the longer series, land-value basis steps are much more visible: 2518 Mission College remains the outlier, while 3055 and 4590 show the largest Patrick Henry corridor land positions.",
+          years: ["2014-2015", "2015-2016", "2016-2017", "2017-2018", "2018-2019", "2019-2020", "2020-2021", "2021-2022", "2022-2023", "2023-2024", "2024-2025", "2025-2026"],
           series: [
-            { label: "3055 Patrick Henry", color: "#aa566b", values: [15857867, 16175024, 16498524] },
-            { label: "3000 Patrick Henry", color: "#c9a24d", values: [3984029, 4063709, 4144983] },
-            { label: "3100-3118 Patrick Henry", color: "#4f7b6a", values: [3416463, 3484792, 3554487] },
-            { label: "4590 Patrick Henry", color: "#2f5d7c", values: [12088552, 12330323, 12576929] },
-            { label: "2518 Mission College", color: "#7e5aa6", values: [97035231, 98975935, 100955453] }
+            { label: "3055 Patrick Henry", color: "#aa566b", values: [6732494, 6867009, 9289537, 13413000, 13681260, 13954885, 15085800, 15242088, 15857867, 16175024, 16498524, null] },
+            { label: "3000 Patrick Henry", color: "#c9a24d", values: [3381281, 3448838, 3501432, 3571460, 3642889, 3715746, 3790060, 3829325, 3984029, 4063709, 4144983, 4144983] },
+            { label: "3100-3118 Patrick Henry", color: "#4f7b6a", values: [2899582, 2957515, 3002617, 3062669, 3123922, 3186400, 3250128, 3283799, 3349474, 3416463, 3484792, 3554487] },
+            { label: "4590 Patrick Henry", color: "#2f5d7c", values: [3762444, 3837617, 3896140, 3974062, 4053543, 4134613, 12000000, 11619140, 12088552, 12330323, 12576929, 12576929] },
+            { label: "2518 Mission College", color: "#7e5aa6", values: [56726965, 57860369, 85281000, 86986620, 88726352, 90500879, 92310896, 93267236, 95132580, 98975935, 100955453, null] }
           ]
         },
         {
           chartId: "tax-chart-improvement-value",
           title: "Improvement value",
           takeaway:
-            "Improvement value makes the existing-building scale difference clearer: 3055 carries a much larger built-value basis than 3000 or 3100-3118, while 2518 Mission College remains the clear outlier in the local file set.",
-          years: ["2023", "2024", "2025"],
+            "The longer improvement-value history shows where building basis changed materially over time, especially at 3055, 4590, and 2518 Mission College.",
+          years: ["2014-2015", "2015-2016", "2016-2017", "2017-2018", "2018-2019", "2019-2020", "2020-2021", "2021-2022", "2022-2023", "2023-2024", "2024-2025", "2025-2026"],
           series: [
-            { label: "3055 Patrick Henry", color: "#aa566b", values: [15639139, 15951921, 16270959] },
-            { label: "3000 Patrick Henry", color: "#c9a24d", values: [2263652, 2308925, 2355103] },
-            { label: "3100-3118 Patrick Henry", color: "#4f7b6a", values: [2934055, 2992736, 3052590] },
-            { label: "4590 Patrick Henry", color: "#2f5d7c", values: [5439848, 5548644, 5659616] },
-            { label: "2518 Mission College", color: "#7e5aa6", values: [62633745, 63886419, 65164147] }
+            { label: "3055 Patrick Henry", color: "#aa566b", values: [5563051, 5674200, 5727612, 5967000, 6086340, 6208066, 14877720, 15031853, 15639139, 15951921, 16270959, null] },
+            { label: "3000 Patrick Henry", color: "#c9a24d", values: [2087598, 2237176, 2241030, 2247398, 2260793, 2277209, 3540871, 3474777, 2263652, 2308925, 2355103, 4374367] },
+            { label: "3100-3118 Patrick Henry", color: "#4f7b6a", values: [2490160, 2539913, 2578646, 2630218, 2682822, 2736478, 2791207, 2820123, 2876525, 2934055, 2992736, 3052590] },
+            { label: "4590 Patrick Henry", color: "#2f5d7c", values: [1646069, 1678957, 1704561, 1738652, 1773425, 1808893, 4400000, 5228613, 5439848, 5548644, 5659616, 5659616] },
+            { label: "2518 Mission College", color: "#7e5aa6", values: [39880238, 40677045, 53300625, 54366637, 55453969, 56563048, 59584308, 60201601, 61405633, 63886419, 65164147, null] }
           ]
         },
         {
           chartId: "tax-chart-net-assessed-value",
           title: "Net assessed value",
           takeaway:
-            "On a net-assessed basis, 3055's 2025 value of $32.77M sits above the other Patrick Henry redevelopment references, below 2518 Mission College's campus-scale basis, and materially above the smaller 3000 and 3100-3118 parcels.",
-          years: ["2023", "2024", "2025"],
+            "Net assessed value best captures the total basis trajectory: 3055 steps up sharply after 2019-2020, 4590 also reprices higher, and 2518 Mission College remains a much larger campus-scale benchmark.",
+          years: ["2014-2015", "2015-2016", "2016-2017", "2017-2018", "2018-2019", "2019-2020", "2020-2021", "2021-2022", "2022-2023", "2023-2024", "2024-2025", "2025-2026"],
           series: [
-            { label: "3055 Patrick Henry", color: "#aa566b", values: [31497006, 32126945, 32769483] },
-            { label: "3000 Patrick Henry", color: "#c9a24d", values: [8051307, 8302657, 8519350] },
-            { label: "3100-3118 Patrick Henry", color: "#4f7b6a", values: [6350518, 6477528, 6607077] },
-            { label: "4590 Patrick Henry", color: "#2f5d7c", values: [17528400, 17878967, 18236545] },
-            { label: "2518 Mission College", color: "#7e5aa6", values: [154751172, 157846193, 161003116] }
+            { label: "3055 Patrick Henry", color: "#aa566b", values: [12295545, 12541209, 15017149, 19380000, 19767600, 20162951, 29963520, 30273941, 30879419, 32126945, 32769483, null] },
+            { label: "3000 Patrick Henry", color: "#c9a24d", values: [5468879, 5686014, 5742462, 5818858, 5903682, 5992955, 7330931, 7304102, 7929664, 6372634, 8519350, 8519350] },
+            { label: "3100-3118 Patrick Henry", color: "#4f7b6a", values: [5389742, 5497428, 5581263, 5692887, 5806744, 5922878, 6041335, 6103922, 6225999, 6350518, 6477528, 6607077] },
+            { label: "4590 Patrick Henry", color: "#2f5d7c", values: [5408513, 5516574, 5600701, 5712714, 5826968, 5943506, 16400000, 16847753, 17184707, 17878967, 18236545, 18236545] },
+            { label: "2518 Mission College", color: "#7e5aa6", values: [96607203, 98537414, 138581625, 141353257, 144180321, 147063927, 151895204, 153468837, 156538213, 162862354, 166119600, null] }
           ]
         }
       ],
       snapshotTable: {
-        columns: ["Property", "2025 land", "2025 improvements", "2025 net assessed", "2023-25 change"],
+        columns: ["Property", "Latest year", "Land", "Improvements", "Net assessed", "2014-15 to latest change"],
         rows: [
-          ["3055 Patrick Henry", "$16,498,524", "$16,270,959", "$32,769,483", "+$1,272,477 / +4.0%"],
-          ["4590 Patrick Henry", "$12,576,929", "$5,659,616", "$18,236,545", "+$708,145 / +4.0%"],
-          ["3000 Patrick Henry", "$4,144,983", "$2,355,103", "$8,519,350", "+$468,043 / +5.8%*"],
-          ["3100-3118 Patrick Henry", "$3,554,487", "$3,052,590", "$6,607,077", "+$256,559 / +4.0%"],
-          ["2518 Mission College", "$100,955,453", "$65,164,147", "$161,003,116", "+$6,251,944 / +4.0%"]
-        ],
-        footnote:
-          "* 3000 Patrick Henry's county-reported net assessed value includes business personal property, so its change figure is not perfectly apples-to-apples with the other rows."
+          ["3055 Patrick Henry", "2024-2025", "$16,498,524", "$16,270,959", "$32,769,483", "+$20,473,938 / +166.5%"],
+          ["4590 Patrick Henry", "2025-2026", "$12,576,929", "$5,659,616", "$18,236,545", "+$12,828,032 / +237.2%"],
+          ["3000 Patrick Henry", "2025-2026", "$4,144,983", "$4,374,367", "$8,519,350", "+$3,050,471 / +55.8%"],
+          ["3100-3118 Patrick Henry", "2025-2026", "$3,554,487", "$3,052,590", "$6,607,077", "+$1,217,335 / +22.6%"],
+          ["2518 Mission College", "2024-2025", "$100,955,453", "$65,164,147", "$166,119,600", "+$69,512,397 / +72.0%"]
+        ]
       },
-      notes: [
-        "Net assessed value in the final chart follows the county's bottom-line figure. At 3000 Patrick Henry that total includes business personal property; at 2518 Mission College the county record also shows an 'Other' deduction before arriving at the net figure."
-      ],
       sources: [
-        { label: "Santa Clara County Assessor public data — 3055 Patrick Henry", url: "./sources-supporting-docs/Tax info/3055 patrick henry.pdf" },
-        { label: "Santa Clara County Assessor public data — 3000 Patrick Henry", url: "./sources-supporting-docs/Tax info/3000 PATRICK HENRY DR.pdf" },
-        { label: "Santa Clara County Assessor public data — 3100-3118 Patrick Henry", url: "./sources-supporting-docs/Tax info/3100-3118 Patrick Henry Dr.pdf" },
-        { label: "Santa Clara County Assessor public data — 4590 Patrick Henry", url: "./sources-supporting-docs/Tax info/4590 PATRICK HENRY DR.pdf" },
-        { label: "Santa Clara County Assessor public data — 2518 Mission College", url: "./sources-supporting-docs/Tax info/2518 Mission College.pdf" }
+        { label: "Santa Clara County Assessor public data — CompRedux workbook for 3055 Patrick Henry", url: "./sources-supporting-docs/Tax info/CompRedux/3055-PATRICK-HENRY-DR-SANTA-CLARA-950541815-2026-04-14.xlsx" },
+        { label: "Santa Clara County Assessor public data — CompRedux workbook for 3000 Patrick Henry", url: "./sources-supporting-docs/Tax info/CompRedux/3000-PATRICK-HENRY-DR-SANTA-CLARA-950541814-2026-04-14.xlsx" },
+        { label: "Santa Clara County Assessor public data — CompRedux workbook for 3100-3118 Patrick Henry", url: "./sources-supporting-docs/Tax info/CompRedux/3100-PATRICK-HENRY-DR-SANTA-CLARA-950541814-2026-04-14.xlsx" },
+        { label: "Santa Clara County Assessor public data — CompRedux workbook for 4590 Patrick Henry", url: "./sources-supporting-docs/Tax info/CompRedux/4590-PATRICK-HENRY-DR-SANTA-CLARA-950541817-2026-04-14.xlsx" },
+        { label: "Santa Clara County Assessor public data — CompRedux workbook for 2518 Mission College", url: "./sources-supporting-docs/Tax info/CompRedux/2518-Misson-college-blvd.xlsx" }
       ]
     },
     {
@@ -1199,132 +1192,14 @@ window.REPORT_DATA = {
       label: "Rent Comparables",
       title: "Rent comparables",
       paragraphs: [
-        "Current Apartments.com asking rents reviewed on April 12, 2026. The focus here is nearby condo-style product in the North Santa Clara / Rivermark trade area rather than larger institutional apartment projects."
+        "Loading rent comparable data."
       ],
-      customHtml: `
-        <div class="project-subsection comp-group">
-          <div class="project-section-header">
-            <h3 class="project-subsection-title">Nearby condo rental snapshot</h3>
-          </div>
-          <p class="project-subsection-copy">This page is intentionally organized as a rent-comparables page: a quick unit-type summary first, followed by individual nearby listings that help anchor real asking rents for condo-style product around the subject. The comp addresses cluster around Agnew Road, Lick Mill Boulevard, and Rivermark Parkway in the same 95054 trade area.</p>
-
-          <h4>Rent summary by unit type</h4>
-          <table>
-            <thead>
-              <tr>
-                <th>Unit type</th>
-                <th>Comp count</th>
-                <th>SF range</th>
-                <th>Low rent</th>
-                <th>High rent</th>
-                <th>Average rent</th>
-                <th>Low $/SF</th>
-                <th>High $/SF</th>
-                <th>Average $/SF</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>1 bedroom</td>
-                <td>1</td>
-                <td>900 SF</td>
-                <td>$3,060</td>
-                <td>$3,060</td>
-                <td>$3,060</td>
-                <td>$3.40</td>
-                <td>$3.40</td>
-                <td>$3.40</td>
-              </tr>
-              <tr>
-                <td>2 bedroom</td>
-                <td>4</td>
-                <td>1,149-1,464 SF</td>
-                <td>$3,700</td>
-                <td>$4,970</td>
-                <td>$4,160</td>
-                <td>$2.53</td>
-                <td>$4.33</td>
-                <td>$3.42</td>
-              </tr>
-            </tbody>
-          </table>
-
-          <p class="comp-note">Read-through: the updated Miraval listings push the top of the 2-bedroom range materially higher than the earlier snapshot, with current asking rents now spanning roughly $3,700 to $4,970 for the 2-bedroom set. With the stale Agnew and Mission Terrace listings removed, the live comp set now reads more cleanly as a current condo-rental snapshot for 95054.</p>
-
-          <h4>Comparable listings</h4>
-          <div class="project-mini-grid rent-comp-grid">
-            <div class="project-profile compact">
-              <h4><a href="https://www.apartments.com/building/miraval-santa-clara-ca/b8yr5zb/" target="_blank" rel="noopener">#1 3901 Lick Mill Blvd Unit SI FL2-ID1601</a></h4>
-              <div class="project-kicker">Miraval / Rivermark condo rental</div>
-              <div class="project-detail-grid">
-                <div class="project-detail"><strong>Unit mix</strong>2 bed / 2 bath</div>
-                <div class="project-detail"><strong>Size</strong>1,149 SF</div>
-                <div class="project-detail"><strong>Ask</strong>$4,170/mo</div>
-                <div class="project-detail"><strong>Ask per SF</strong>$3.63/SF</div>
-                <div class="project-detail"><strong>Note</strong>Blueground furnished listing</div>
-              </div>
-            </div>
-
-            <div class="project-profile compact">
-              <h4><a href="https://www.apartments.com/building/miraval-santa-clara-ca/b8yr5zb/" target="_blank" rel="noopener">#2 3901 Lick Mill Blvd Unit SI FL2-ID1576</a></h4>
-              <div class="project-kicker">Miraval / Rivermark condo rental</div>
-              <div class="project-detail-grid">
-                <div class="project-detail"><strong>Unit mix</strong>1 bed / 1 bath</div>
-                <div class="project-detail"><strong>Size</strong>900 SF</div>
-                <div class="project-detail"><strong>Ask</strong>$3,060/mo</div>
-                <div class="project-detail"><strong>Ask per SF</strong>$3.40/SF</div>
-                <div class="project-detail"><strong>Note</strong>Current 1BR anchor</div>
-              </div>
-            </div>
-
-            <div class="project-profile green compact">
-              <h4><a href="https://www.apartments.com/building/miraval-santa-clara-ca/b8yr5zb/" target="_blank" rel="noopener">#3 3901 Lick Mill Blvd Unit SI FL1-ID1563</a></h4>
-              <div class="project-kicker">Miraval / Rivermark condo rental</div>
-              <div class="project-detail-grid">
-                <div class="project-detail"><strong>Unit mix</strong>2 bed / 2 bath</div>
-                <div class="project-detail"><strong>Size</strong>1,149 SF</div>
-                <div class="project-detail"><strong>Ask</strong>$4,970/mo</div>
-                <div class="project-detail"><strong>Ask per SF</strong>$4.33/SF</div>
-                <div class="project-detail"><strong>Note</strong>Current high-end 2BR anchor</div>
-              </div>
-            </div>
-
-            <div class="project-profile green compact">
-              <h4><a href="https://www.apartments.com/2200-agnew-rd-santa-clara-ca/9ysef75/" target="_blank" rel="noopener">#4 2200 Agnew Rd</a></h4>
-              <div class="project-kicker">Additional Agnew Road 2BR listing</div>
-              <div class="project-detail-grid">
-                <div class="project-detail"><strong>Unit mix</strong>2 bed / 2 bath</div>
-                <div class="project-detail"><strong>Size</strong>1,195 SF</div>
-                <div class="project-detail"><strong>Ask</strong>$3,800/mo</div>
-                <div class="project-detail"><strong>Ask per SF</strong>$3.18/SF</div>
-                <div class="project-detail"><strong>Note</strong>Another $3,800 2BR datapoint</div>
-              </div>
-            </div>
-
-            <div class="project-profile green compact">
-              <h4><a href="https://www.apartments.com/4420-rivermark-pkwy-santa-clara-ca/k15nh6c/" target="_blank" rel="noopener">#5 4420 Rivermark Pkwy</a></h4>
-              <div class="project-kicker">Rivermark townhome-style rental</div>
-              <div class="project-detail-grid">
-                <div class="project-detail"><strong>Unit mix</strong>2 bed / 2.5 bath</div>
-                <div class="project-detail"><strong>Size</strong>1,464 SF</div>
-                <div class="project-detail"><strong>Ask</strong>$3,700/mo</div>
-                <div class="project-detail"><strong>Ask per SF</strong>$2.53/SF</div>
-                <div class="project-detail"><strong>Note</strong>Largest unit in set</div>
-              </div>
-            </div>
-          </div>
-        </div>
-      `,
+      customHtml: "",
       bullets: [
-        "These are asking-rent snapshots from Apartments.com, not signed lease comps or effective rents.",
-        "The comp set is intentionally focused on condo-style product near Rivermark and Agnew rather than on large podium apartment projects farther south.",
-        "Some listings are single-unit condo postings while others are building-address postings; both are included because they still help bracket current asking rents in the same micro-market."
+        "Rent comparable data is summarized from the current Apartments.com comp set."
       ],
       sources: [
-        { label: "Miraval building page", url: "https://www.apartments.com/building/miraval-santa-clara-ca/b8yr5zb/" },
-        { label: "3901 Lick Mill Blvd available units page", url: "https://www.apartments.com/building/miraval-santa-clara-ca/b8yr5zb/" },
-        { label: "2200 Agnew Rd listing", url: "https://www.apartments.com/2200-agnew-rd-santa-clara-ca/9ysef75/" },
-        { label: "4420 Rivermark Pkwy listing", url: "https://www.apartments.com/4420-rivermark-pkwy-santa-clara-ca/k15nh6c/" }
+        { label: "Apartments.com comp sources", url: "https://www.apartments.com/" }
       ]
     },
     {

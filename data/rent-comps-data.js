@@ -1,0 +1,755 @@
+window.RENT_COMP_DATA = [
+  {
+    "property_name": "The Clara",
+    "address": "5150 Calle del Sol",
+    "city_state_zip": "Santa Clara, CA 95054",
+    "total_units": 508,
+    "year_built": 2025,
+    "amenities": [
+      "Pool (75-ft outdoor lap pool)",
+      "Spa",
+      "Sauna",
+      "Hot Tub",
+      "Cabana",
+      "Fitness Center",
+      "Yoga Studio",
+      "Concierge",
+      "Clubhouse",
+      "Lounge",
+      "Media Room",
+      "Bocce Ball Courts",
+      "Children's Playroom",
+      "Outdoor Terrace",
+      "Firepits",
+      "Pizza Oven",
+      "Pet Spa",
+      "Pet Washing Station",
+      "Indoor-outdoor Coworking Space",
+      "Controlled Access",
+      "Bike-Friendly Area",
+      "Island Kitchen"
+    ],
+    "parking": {
+      "type": "Covered",
+      "cost_per_month": 175
+    },
+    "pet_policy": {
+      "allowed": true,
+      "fees": "Pet Rent: $65/mo, Pet Deposit: $500 (Refundable)"
+    },
+    "unit_types": [
+      {
+        "layout": "Studio",
+        "sq_ft_min": 451,
+        "sq_ft_max": 620,
+        "rent_min": 3530,
+        "rent_max": 3908,
+        "units_available": 11,
+        "availability_date": "Now (some May 9–18)",
+        "plan_breakdown": [
+          {
+            "plan": "A12",
+            "sqft": 476,
+            "rent": "$3,530–$3,550",
+            "available": 3
+          },
+          {
+            "plan": "A2",
+            "sqft": 497,
+            "rent": "$3,537",
+            "available": 1
+          },
+          {
+            "plan": "A11",
+            "sqft": 492,
+            "rent": "$3,561",
+            "available": 1
+          },
+          {
+            "plan": "B3",
+            "sqft": 508,
+            "rent": "$3,609–$3,619",
+            "available": 2
+          },
+          {
+            "plan": "A1",
+            "sqft": 512,
+            "rent": "$3,627",
+            "available": 1
+          },
+          {
+            "plan": "B8",
+            "sqft": 557,
+            "rent": "$3,707",
+            "available": 1
+          },
+          {
+            "plan": "B4",
+            "sqft": 620,
+            "rent": "$3,878–$3,908",
+            "available": 2
+          }
+        ],
+        "not_available_plans": [
+          "A3 (451 sqft)",
+          "A14 (473 sqft)"
+        ]
+      },
+      {
+        "layout": "1 Bed/1 Bath",
+        "sq_ft_min": 636,
+        "sq_ft_max": 804,
+        "rent_min": 4218,
+        "rent_max": 4998,
+        "units_available": 43,
+        "availability_date": "Now (some May 2)",
+        "plan_breakdown": [
+          {
+            "plan": "C8",
+            "sqft": 654,
+            "rent": "$4,218",
+            "available": 1
+          },
+          {
+            "plan": "C7",
+            "sqft": 684,
+            "rent": "$4,272–$4,362",
+            "available": 2
+          },
+          {
+            "plan": "C6",
+            "sqft": 636,
+            "rent": "$4,276",
+            "available": 1
+          },
+          {
+            "plan": "A2",
+            "sqft": 710,
+            "rent": "$4,319",
+            "available": 1
+          },
+          {
+            "plan": "B1",
+            "sqft": 649,
+            "rent": "$4,354–$4,364",
+            "available": 3
+          },
+          {
+            "plan": "A5",
+            "sqft": "664–669",
+            "rent": "$4,361–$4,725",
+            "available": 6
+          },
+          {
+            "plan": "A1",
+            "sqft": 731,
+            "rent": "$4,452–$4,462",
+            "available": 2
+          },
+          {
+            "plan": "C1",
+            "sqft": 731,
+            "rent": "$4,477–$4,497",
+            "available": 3
+          },
+          {
+            "plan": "A7",
+            "sqft": "759–770",
+            "rent": "$4,577–$4,952",
+            "available": 8
+          },
+          {
+            "plan": "A3",
+            "sqft": "769–784",
+            "rent": "$4,609–$4,947",
+            "available": 10
+          },
+          {
+            "plan": "A6",
+            "sqft": 686,
+            "rent": "$4,702–$4,752",
+            "available": 2
+          },
+          {
+            "plan": "A4",
+            "sqft": "800–804",
+            "rent": "$4,731–$4,998",
+            "available": 4
+          }
+        ]
+      },
+      {
+        "layout": "2 Bed/2 Bath",
+        "sq_ft_min": 964,
+        "sq_ft_max": 1224,
+        "rent_min": 5520,
+        "rent_max": 6795,
+        "units_available": 48,
+        "availability_date": "Now (some Apr–Jun)",
+        "plan_breakdown": [
+          {
+            "plan": "C1",
+            "sqft": 964,
+            "rent": "$5,520",
+            "available": 1
+          },
+          {
+            "plan": "C2",
+            "sqft": 964,
+            "rent": "$5,790",
+            "available": 1
+          },
+          {
+            "plan": "A11",
+            "sqft": 1011,
+            "rent": "$5,654–$5,714",
+            "available": 4
+          },
+          {
+            "plan": "B4",
+            "sqft": 1034,
+            "rent": "$5,678–$5,718",
+            "available": 3
+          },
+          {
+            "plan": "A3",
+            "sqft": "1054–1066",
+            "rent": "$5,602–$6,024",
+            "available": 3
+          },
+          {
+            "plan": "B2",
+            "sqft": 1063,
+            "rent": "$5,720–$5,795",
+            "available": 4
+          },
+          {
+            "plan": "A6",
+            "sqft": 1047,
+            "rent": "$5,792–$5,812",
+            "available": 2
+          },
+          {
+            "plan": "B6",
+            "sqft": 1098,
+            "rent": "$5,731–$5,811",
+            "available": 4
+          },
+          {
+            "plan": "A5",
+            "sqft": 1078,
+            "rent": "$5,717–$5,782",
+            "available": 4
+          },
+          {
+            "plan": "A1",
+            "sqft": 1134,
+            "rent": "$5,699–$5,779",
+            "available": 5
+          },
+          {
+            "plan": "A4",
+            "sqft": 1126,
+            "rent": "$5,787–$5,852",
+            "available": 4
+          },
+          {
+            "plan": "A17",
+            "sqft": 1129,
+            "rent": "$5,901",
+            "available": 1
+          },
+          {
+            "plan": "A12",
+            "sqft": "1160–1170",
+            "rent": "$5,867–$6,261",
+            "available": 3
+          },
+          {
+            "plan": "A8",
+            "sqft": 1195,
+            "rent": "$5,873–$5,933",
+            "available": 3
+          },
+          {
+            "plan": "A9",
+            "sqft": 1224,
+            "rent": "$5,915–$5,975",
+            "available": 3
+          },
+          {
+            "plan": "A7",
+            "sqft": 1118,
+            "rent": "$6,645",
+            "available": 1
+          },
+          {
+            "plan": "A2",
+            "sqft": "1189–1190",
+            "rent": "$6,301–$6,795",
+            "available": 2
+          }
+        ]
+      },
+      {
+        "layout": "3 Bed",
+        "sq_ft_min": 1295,
+        "sq_ft_max": 1971,
+        "rent_min": 7507,
+        "rent_max": 13430,
+        "units_available": 6,
+        "availability_date": "Now (some Apr 20)",
+        "plan_breakdown": [
+          {
+            "plan": "C2 (3BD/2BA)",
+            "sqft": 1295,
+            "rent": "$7,507",
+            "available": 1
+          },
+          {
+            "plan": "A2 (3BD/3BA)",
+            "sqft": 1649,
+            "rent": "$7,774–$7,804",
+            "available": 2
+          },
+          {
+            "plan": "2DU A5 (Townhouse 3BD/3BA)",
+            "sqft": 1971,
+            "rent": "$11,010",
+            "available": 1
+          },
+          {
+            "plan": "A6 (Penthouse 3BD/2BA)",
+            "sqft": 1523,
+            "rent": "$11,560",
+            "available": 1
+          },
+          {
+            "plan": "A5 (Penthouse 3BD/2BA)",
+            "sqft": 1488,
+            "rent": "$13,430",
+            "available": 1
+          }
+        ]
+      }
+    ],
+    "notes": "Move-in Special: 6 Weeks Free on Penthouses; Up to 8 Weeks Free on Townhomes and Select Apartments. Restrictions apply. Prices are total monthly (includes mandatory fees). Greystar managed.",
+    "data_verified": "2026-04-13 via The Clara.pdf"
+  },
+  {
+    "property_name": "AVE Santa Clara",
+    "address": "2240 Calle De Luna",
+    "city_state_zip": "Santa Clara, CA 95054",
+    "total_units": 211,
+    "year_built": 2025,
+    "lease_terms": "6–15 month leases; short-term leases available",
+    "fees": {
+      "application_fee": "$50 per applicant",
+      "admin_fee_at_move_in": "$250"
+    },
+    "amenities": [
+      "New Construction",
+      "Bike-Friendly Area",
+      "Furnished Units Available",
+      "Pet Washing Station",
+      "On-Site Retail",
+      "Dog Park",
+      "Pool",
+      "Business Center",
+      "9' Ceilings",
+      "Conference Rooms on Every Residential Floor",
+      "Game Room",
+      "High-speed WiFi",
+      "Hot Beverage Bar",
+      "Movie/Sports Lounge",
+      "Private Work Pods",
+      "Quartz Countertops (Kitchen/Bath)",
+      "Samsung Washer/Dryer in Apartment",
+      "Stainless Steel Kitchen Appliances"
+    ],
+    "parking": {
+      "type": "not specified",
+      "cost_per_month": null
+    },
+    "pet_policy": {
+      "allowed": true,
+      "fees": "Dog Fee: $500, Dog Rent: $65/mo; Cat Fee: $500, Cat Rent: $65/mo"
+    },
+    "unit_types": [
+      {
+        "layout": "Studio",
+        "sq_ft_min": 477,
+        "sq_ft_max": 519,
+        "rent_min": 3205,
+        "rent_max": 3485,
+        "units_available": 3,
+        "plan_breakdown": [
+          {
+            "plan": "E1",
+            "sqft": 477,
+            "rent": "$3,310–$3,485",
+            "available": 2,
+            "availability_date": "Jun 23 / Aug 21"
+          },
+          {
+            "plan": "E2",
+            "sqft": 519,
+            "rent": "$3,205",
+            "available": 1,
+            "availability_date": "Aug 21"
+          }
+        ]
+      },
+      {
+        "layout": "1 Bed/1 Bath",
+        "sq_ft_min": 594,
+        "sq_ft_max": 643,
+        "rent_min": 3640,
+        "rent_max": 3894,
+        "units_available": 4,
+        "plan_breakdown": [
+          {
+            "plan": "A2",
+            "sqft": 598,
+            "rent": "$3,640",
+            "available": 1,
+            "availability_date": "Aug 21"
+          },
+          {
+            "plan": "A3",
+            "sqft": 594,
+            "rent": "$3,703",
+            "available": 1,
+            "availability_date": "Aug 21"
+          },
+          {
+            "plan": "A4",
+            "sqft": 643,
+            "rent": "$3,814–$3,894",
+            "available": 2,
+            "availability_date": "Aug 21"
+          }
+        ]
+      },
+      {
+        "layout": "3 Bed/2 Bath",
+        "sq_ft_min": 1254,
+        "sq_ft_max": 1254,
+        "rent_min": 6779,
+        "rent_max": 6779,
+        "units_available": 1,
+        "plan_breakdown": [
+          {
+            "plan": "C3",
+            "sqft": 1254,
+            "rent": "$6,779",
+            "available": 1,
+            "availability_date": "May 16"
+          }
+        ]
+      }
+    ],
+    "notes": "No 2BR plans available. Furnished units available. Prices are total monthly (includes mandatory fees). Managed by AVE.",
+    "data_verified": "2026-04-13 via ave.pdf"
+  },
+  {
+    "property_name": "The Lafayette",
+    "address": "2333 Calle Del Mundo",
+    "city_state_zip": "Santa Clara, CA 95054",
+    "total_units": 347,
+    "year_built": 2024,
+    "amenities": [
+      "Pool",
+      "Fitness Center",
+      "Controlled Access",
+      "Spa",
+      "Clubhouse",
+      "Lounge",
+      "Walking/Biking Trails",
+      "Sundeck",
+      "Dog Park",
+      "Package Service",
+      "Recycling"
+    ],
+    "parking": {
+      "type": "Third Party Parking",
+      "cost_per_month": 125
+    },
+    "pet_policy": {
+      "allowed": true,
+      "fees": "Pet Deposit: $500; Pet Rent: $50/month for each pet"
+    },
+    "unit_types": [
+      {
+        "layout": "1 Bed/1 Bath",
+        "sq_ft_min": 652,
+        "sq_ft_max": 715,
+        "rent_min": 3693,
+        "rent_max": 3928,
+        "units_available": 4,
+        "plan_breakdown": [
+          {
+            "plan": "A4",
+            "sqft": "652–662",
+            "rent": "$3,693–$3,703",
+            "available": 2,
+            "availability_date": "Now / May 21"
+          },
+          {
+            "plan": "A7",
+            "sqft": "685–715",
+            "rent": "$3,888–$3,928",
+            "available": 2,
+            "availability_date": "May 29 / Jun 29"
+          }
+        ]
+      },
+      {
+        "layout": "2 Bed/2 Bath",
+        "sq_ft_min": 953,
+        "sq_ft_max": 1310,
+        "rent_min": 4766,
+        "rent_max": 6198,
+        "units_available": 9,
+        "plan_breakdown": [
+          {
+            "plan": "B3",
+            "sqft": 953,
+            "rent": "$4,766",
+            "available": 1,
+            "availability_date": "May 7"
+          },
+          {
+            "plan": "B8",
+            "sqft": 1271,
+            "rent": "$5,116",
+            "available": 1,
+            "availability_date": "Now"
+          },
+          {
+            "plan": "B4",
+            "sqft": 1015,
+            "rent": "$5,576",
+            "available": 1,
+            "availability_date": "Now"
+          },
+          {
+            "plan": "B4",
+            "sqft": 1129,
+            "rent": "$5,238–$5,363",
+            "available": 2,
+            "availability_date": "Now / May 20"
+          },
+          {
+            "plan": "B6",
+            "sqft": 1165,
+            "rent": "$5,416–$6,151",
+            "available": 2,
+            "availability_date": "Now"
+          },
+          {
+            "plan": "B9",
+            "sqft": "1277–1310",
+            "rent": "$5,493–$6,098",
+            "available": 2,
+            "availability_date": "Now"
+          },
+          {
+            "plan": "B7",
+            "sqft": 1240,
+            "rent": "$6,198",
+            "available": 1,
+            "availability_date": "Now"
+          }
+        ]
+      },
+      {
+        "layout": "3 Bed/2 Bath",
+        "sq_ft_min": 1360,
+        "sq_ft_max": 1360,
+        "rent_min": 6213,
+        "rent_max": 6213,
+        "units_available": 1,
+        "plan_breakdown": [
+          {
+            "plan": "C1",
+            "sqft": 1360,
+            "rent": "$6,213",
+            "available": 1,
+            "availability_date": "Now"
+          }
+        ]
+      }
+    ],
+    "notes": "Move-in special: Up to 4 Weeks Free. *Restrictions May Apply. Prices are total monthly (includes mandatory fees).",
+    "data_verified": "2026-04-13 via screenshots"
+  },
+  {
+    "property_name": "Passero",
+    "address": "2230 Calle Del Mundo",
+    "city_state_zip": "Santa Clara, CA 95054",
+    "total_units": 371,
+    "stories": 8,
+    "year_built": 2025,
+    "lease_terms": "15–18 month leases",
+    "deposit": 700,
+    "amenities": [
+      "Pool",
+      "Spa",
+      "Fitness Center",
+      "Bike-Friendly Area",
+      "Media Center/Movie Theatre",
+      "Clubhouse",
+      "Top Floor Club Room With Wet Bar",
+      "Premier Fitness & Wellness Studios",
+      "Smart Home Features",
+      "Furnished Units Available"
+    ],
+    "parking": {
+      "type": "Parking Available",
+      "cost_per_month": 150
+    },
+    "pet_policy": {
+      "allowed": true,
+      "fees": "$75/mo pet rent"
+    },
+    "unit_types": [
+      {
+        "layout": "Studio",
+        "plan": "S1",
+        "sq_ft_min": 331,
+        "sq_ft_max": 349,
+        "rent_min": 2868,
+        "rent_max": 2908,
+        "units_available": 20,
+        "availability_date": "Now",
+        "notes": "Total monthly price (includes mandatory fees). Base rent approx. $2,825."
+      },
+      {
+        "layout": "1 Bed/1 Bath",
+        "plans_available": [
+          "U1",
+          "A2",
+          "A3",
+          "A6-D"
+        ],
+        "sq_ft_min": 527,
+        "sq_ft_max": 803,
+        "rent_min": 3547,
+        "rent_max": 4238,
+        "units_available": 8,
+        "availability_date": "Now",
+        "plan_breakdown": [
+          {
+            "plan": "U1",
+            "sqft": "527–539",
+            "rent": "$3,547–$3,597",
+            "available": 4
+          },
+          {
+            "plan": "A2",
+            "sqft": "677–694",
+            "rent": "$3,790",
+            "available": 1
+          },
+          {
+            "plan": "A3",
+            "sqft": "740–765",
+            "rent": "$3,985–$4,035",
+            "available": 2
+          },
+          {
+            "plan": "A6-D",
+            "sqft": "803",
+            "rent": "$4,238",
+            "available": 1
+          }
+        ]
+      },
+      {
+        "layout": "2 Beds/2 Baths",
+        "plans_available": [
+          "B1",
+          "B4",
+          "B3",
+          "B6"
+        ],
+        "sq_ft_min": 939,
+        "sq_ft_max": 1126,
+        "rent_min": 4797,
+        "rent_max": 5104,
+        "units_available": 10,
+        "availability_date": "Now",
+        "plan_breakdown": [
+          {
+            "plan": "B1",
+            "sqft": "939",
+            "rent": "$4,797",
+            "available": 2
+          },
+          {
+            "plan": "B4",
+            "sqft": "1,041",
+            "rent": "$4,857",
+            "available": 1
+          },
+          {
+            "plan": "B3",
+            "sqft": "1,074",
+            "rent": "$4,859–$4,919",
+            "available": 3
+          },
+          {
+            "plan": "B6",
+            "sqft": "1,126",
+            "rent": "$5,044–$5,104",
+            "available": 4
+          }
+        ]
+      }
+    ],
+    "notes": "Move-in special: Up to 10 Weeks Free on Furnished Studios; 1-Bedrooms up to 6 Weeks Free; Look & Lease Specials. Lease terms 15–18 months. $700 deposit. Many additional floor plans exist but are currently unavailable (Call for Rent).",
+    "data_verified": "2026-04-13 via passero-rent.pdf"
+  },
+  {
+    "property_name": "Mainline North Apartments",
+    "address": "2310 Calle Del Mundo",
+    "city_state_zip": "Santa Clara, CA 95054",
+    "total_units": 151,
+    "year_built": 2025,
+    "amenities": [
+      "Fitness Center",
+      "Laundry Facilities",
+      "Elevator",
+      "Clubhouse",
+      "EV Charging",
+      "Business Center",
+      "Grill",
+      "Picnic Area",
+      "Rooftop Deck"
+    ],
+    "parking": {
+      "type": "Parking Garage",
+      "cost_per_month": 0
+    },
+    "pet_policy": {
+      "allowed": true,
+      "fees": "Additional fees may apply, see leasing office."
+    },
+    "unit_types": [
+      {
+        "layout": "Studio",
+        "sq_ft_min": 359,
+        "sq_ft_max": 412,
+        "avg_sq_ft": 386,
+        "rent_min": null,
+        "rent_max": null,
+        "units_available": 0,
+        "availability_date": "Not Available",
+        "pricing_note": "Call for Rent. At time of scraping, pricing was listed as $1,895–$2,400/mo with 2nd month free special — no longer displayed."
+      }
+    ],
+    "notes": "No units currently available. Site shows 'Check Back Soon for Upcoming Availability.' Only studio floor plans offered. Previously advertised at $1,895–$2,400/mo with 2nd month free — pricing now unlisted.",
+    "data_verified": "2026-04-13 via screenshot"
+  }
+];

@@ -1,5 +1,15 @@
 const storageKey = "property-report-template-active-tab";
 const reportData = window.REPORT_DATA || { meta: {}, sections: [] };
+const embeddedRentCompData = Array.isArray(window.RENT_COMP_DATA) ? window.RENT_COMP_DATA : null;
+const rentCompSectionId = "apartment-rent-comps";
+const rentCompDataPath = "./data/rent-comps.json";
+const rentCompWebsiteMap = {
+  "The Clara": "https://www.apartments.com/the-clara-santa-clara-ca/6b3v70v/",
+  "AVE Santa Clara": "https://www.apartments.com/ave-santa-clara-santa-clara-ca/z3k89nx/",
+  "The Lafayette": "https://www.apartments.com/the-lafayette-santa-clara-ca/c3enymd/",
+  Passero: "https://www.apartments.com/passero-santa-clara-ca/vbeyz4d/",
+  "Mainline North Apartments": "https://www.apartments.com/mainline-north-apartments-santa-clara-ca-santa-clara-ca/gr4pthz/"
+};
 
 function formatCurrency(value, options = {}) {
   const { maximumFractionDigits = 0, compact = false } = options;
@@ -18,6 +28,397 @@ function escapeHtml(value) {
     .replace(/>/g, "&gt;")
     .replace(/"/g, "&quot;")
     .replace(/'/g, "&#39;");
+}
+
+function formatNumber(value, options = {}) {
+  const { maximumFractionDigits = 0, minimumFractionDigits = 0 } = options;
+  return new Intl.NumberFormat("en-US", {
+    maximumFractionDigits,
+    minimumFractionDigits
+  }).format(value);
+}
+
+function formatSquareFeet(value) {
+  return `${formatNumber(value)} SF`;
+}
+
+function formatSquareFeetRange(min, max) {
+  if (min == null && max == null) return "Not published";
+  if (min == null) return formatSquareFeet(max);
+  if (max == null || min === max) return formatSquareFeet(min);
+  return `${formatNumber(min)}-${formatNumber(max)} SF`;
+}
+
+function formatCurrencyRange(min, max) {
+  if (min == null && max == null) return "Call for rent";
+  if (min == null) return formatCurrency(max);
+  if (max == null || min === max) return formatCurrency(min);
+  return `${formatCurrency(min)}-${formatCurrency(max)}`;
+}
+
+function formatPricePerSf(value) {
+  return `$${formatNumber(value, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}/SF`;
+}
+
+function formatPricePerSfRange(range) {
+  if (!range) return "Not published";
+  if (Math.abs(range.min - range.max) < 0.005) return formatPricePerSf(range.min);
+  return `${formatPricePerSf(range.min)}-${formatPricePerSf(range.max)}`;
+}
+
+function normalizeLayout(layout) {
+  const label = String(layout || "").trim();
+  const lower = label.toLowerCase();
+  if (lower.includes("studio")) return "Studio";
+  const bedroomsMatch = lower.match(/(\d+)\s*bed/);
+  if (bedroomsMatch) {
+    return `${bedroomsMatch[1]} Bedroom`;
+  }
+  return label;
+}
+
+function getLayoutSortValue(layout) {
+  const lower = String(layout || "").toLowerCase();
+  if (lower.includes("studio")) return 0;
+  const bedroomsMatch = lower.match(/(\d+)\s*bed/);
+  if (bedroomsMatch) return Number(bedroomsMatch[1]);
+  return 99;
+}
+
+function compareLayouts(a, b) {
+  const valueA = getLayoutSortValue(a);
+  const valueB = getLayoutSortValue(b);
+  if (valueA !== valueB) return valueA - valueB;
+  return a.localeCompare(b);
+}
+
+function computePricePerSfRange(unitType) {
+  if (
+    unitType?.rent_min == null ||
+    unitType?.rent_max == null ||
+    unitType?.sq_ft_min == null ||
+    unitType?.sq_ft_max == null
+  ) {
+    return null;
+  }
+
+  const price1 = Number(unitType.rent_max) / Number(unitType.sq_ft_max);
+  const price2 = Number(unitType.rent_min) / Number(unitType.sq_ft_min);
+
+  return {
+    min: Math.min(price1, price2),
+    max: Math.max(price1, price2)
+  };
+}
+
+function sumUnitsAvailable(property) {
+  return (property.unit_types || []).reduce((total, unitType) => total + (Number(unitType.units_available) || 0), 0);
+}
+
+function hasAvailableUnits(property) {
+  return sumUnitsAvailable(property) > 0;
+}
+
+function getRentCompSection() {
+  return reportData.sections.find((section) => section.id === rentCompSectionId);
+}
+
+function buildRentCompSources(properties) {
+  return properties
+    .filter((property) => rentCompWebsiteMap[property.property_name])
+    .map((property) => ({
+      label: `${property.property_name} Apartments.com page`,
+      url: rentCompWebsiteMap[property.property_name]
+    }));
+}
+
+function renderRentCompSummary(properties) {
+  const summaryMap = new Map();
+
+  properties.forEach((property) => {
+    (property.unit_types || []).forEach((unitType) => {
+      const layout = normalizeLayout(unitType.layout);
+
+      if (!summaryMap.has(layout)) {
+        summaryMap.set(layout, {
+          layout,
+          buildingCount: 0,
+          availableUnits: 0,
+          pricedBuildingCount: 0,
+          sfMin: null,
+          sfMax: null,
+          rentMin: null,
+          rentMax: null,
+          pricePerSfMin: null,
+          pricePerSfMax: null
+        });
+      }
+
+      const summary = summaryMap.get(layout);
+      summary.buildingCount += 1;
+      summary.availableUnits += Number(unitType.units_available) || 0;
+
+      const hasPublishedPricing =
+        unitType.sq_ft_min != null &&
+        unitType.sq_ft_max != null &&
+        unitType.rent_min != null &&
+        unitType.rent_max != null;
+
+      if (!hasPublishedPricing) return;
+
+      summary.pricedBuildingCount += 1;
+      summary.sfMin = summary.sfMin == null ? unitType.sq_ft_min : Math.min(summary.sfMin, unitType.sq_ft_min);
+      summary.sfMax = summary.sfMax == null ? unitType.sq_ft_max : Math.max(summary.sfMax, unitType.sq_ft_max);
+      summary.rentMin = summary.rentMin == null ? unitType.rent_min : Math.min(summary.rentMin, unitType.rent_min);
+      summary.rentMax = summary.rentMax == null ? unitType.rent_max : Math.max(summary.rentMax, unitType.rent_max);
+
+      const priceRange = computePricePerSfRange(unitType);
+      if (!priceRange) return;
+
+      summary.pricePerSfMin = summary.pricePerSfMin == null ? priceRange.min : Math.min(summary.pricePerSfMin, priceRange.min);
+      summary.pricePerSfMax = summary.pricePerSfMax == null ? priceRange.max : Math.max(summary.pricePerSfMax, priceRange.max);
+    });
+  });
+
+  const rows = Array.from(summaryMap.values())
+    .sort((a, b) => compareLayouts(a.layout, b.layout))
+    .map(
+      (summary) => `
+        <tr>
+          <td>${escapeHtml(summary.layout)}</td>
+          <td>${escapeHtml(String(summary.availableUnits))}</td>
+          <td>${escapeHtml(formatSquareFeetRange(summary.sfMin, summary.sfMax))}</td>
+          <td>${escapeHtml(formatCurrencyRange(summary.rentMin, summary.rentMax))}</td>
+          <td>${escapeHtml(formatPricePerSfRange(summary.pricePerSfMin == null ? null : { min: summary.pricePerSfMin, max: summary.pricePerSfMax }))}</td>
+        </tr>
+      `
+    )
+    .join("");
+
+  return `
+    <div class="project-subsection comp-group">
+      <div class="project-section-header">
+        <h3 class="project-subsection-title">Unit-type summary</h3>
+      </div>
+      <p class="project-subsection-copy">Summary ranges below roll up the four newly constructed buildings with current availability. Price per square foot uses the requested range method: <em>max rent / max SF</em> and <em>min rent / min SF</em>, then takes the min and max of those two outputs.</p>
+      <div class="project-compare-table rent-summary-table">
+        <table>
+          <thead>
+            <tr>
+              <th>Unit type</th>
+              <th>Available units</th>
+              <th>SF range</th>
+              <th>Rent range</th>
+              <th>Price / SF range</th>
+            </tr>
+          </thead>
+          <tbody>${rows}</tbody>
+        </table>
+      </div>
+    </div>
+  `;
+}
+
+function renderRentCompBuilding(property) {
+  const totalAvailable = sumUnitsAvailable(property);
+  const amenityPreview = (property.amenities || []).slice(0, 4).join(" • ");
+  const websiteUrl = rentCompWebsiteMap[property.property_name];
+  const unitRows = (property.unit_types || [])
+    .slice()
+    .sort((a, b) => compareLayouts(normalizeLayout(a.layout), normalizeLayout(b.layout)))
+    .map((unitType) => {
+      const unitLabel = normalizeLayout(unitType.layout);
+      const priceRange = computePricePerSfRange(unitType);
+      const notes = [
+        unitType.availability_date,
+        unitType.pricing_note,
+        unitType.notes
+      ].filter(Boolean);
+
+      return `
+        <tr>
+          <td>${escapeHtml(unitLabel)}</td>
+          <td>${escapeHtml(String(Number(unitType.units_available) || 0))}</td>
+          <td>${escapeHtml(formatSquareFeetRange(unitType.sq_ft_min, unitType.sq_ft_max))}</td>
+          <td>${escapeHtml(formatCurrencyRange(unitType.rent_min, unitType.rent_max))}</td>
+          <td>${escapeHtml(formatPricePerSfRange(priceRange))}</td>
+          <td>${escapeHtml(notes.join(" • ") || "Current availability not published")}</td>
+        </tr>
+      `;
+    })
+    .join("");
+
+  const detailItems = (property.unit_types || [])
+    .map((unitType) => {
+      const unitLabel = normalizeLayout(unitType.layout);
+      const floorPlanCount = (unitType.plan_breakdown || []).length;
+      const topPlans = (unitType.plan_breakdown || [])
+        .slice()
+        .sort((a, b) => (Number(b.available) || 0) - (Number(a.available) || 0))
+        .slice(0, 3)
+        .map((plan) => `${plan.plan} (${Number(plan.available) || 0})`);
+
+      const messages = [];
+      if (floorPlanCount) {
+        messages.push(`${floorPlanCount} floor plans tracked`);
+      }
+      if (topPlans.length) {
+        messages.push(`largest current buckets: ${topPlans.join(", ")}`);
+      }
+      if (unitType.not_available_plans?.length) {
+        messages.push(`currently unavailable plans noted: ${unitType.not_available_plans.join(", ")}`);
+      }
+      if (unitType.plans_available?.length && !topPlans.length) {
+        messages.push(`plans currently shown: ${unitType.plans_available.join(", ")}`);
+      }
+      if (unitType.pricing_note) {
+        messages.push(unitType.pricing_note);
+      }
+      if (unitType.notes) {
+        messages.push(unitType.notes);
+      }
+
+      if (!messages.length) return "";
+
+      return `
+        <li>
+          <strong>${escapeHtml(unitLabel)}:</strong>
+          ${escapeHtml(messages.join("; "))}
+        </li>
+      `;
+    })
+    .filter(Boolean)
+    .join("");
+
+  return `
+    <div class="project-subsection comp-group rent-comp-building">
+      <div class="rent-building-header">
+        <div>
+          <div class="rent-building-kicker">New-construction apartment comparable</div>
+          <h3 class="project-subsection-title">${
+            websiteUrl
+              ? `<a href="${escapeHtml(websiteUrl)}" target="_blank" rel="noopener">${escapeHtml(property.property_name)}</a>`
+              : escapeHtml(property.property_name)
+          }</h3>
+          <p class="project-subsection-copy">${escapeHtml(`${property.address}, ${property.city_state_zip}`)}</p>
+        </div>
+        <div class="rent-building-badges">
+          <span class="rent-badge">Built ${escapeHtml(String(property.year_built || "n/a"))}</span>
+          <span class="rent-badge">${escapeHtml(String(property.total_units || "n/a"))} total units</span>
+          <span class="rent-badge">${escapeHtml(String(totalAvailable))} currently available</span>
+        </div>
+      </div>
+
+      <div class="rent-building-meta">
+        <div class="rent-mini-stat">
+          <span>Parking</span>
+          <strong>${escapeHtml(
+            property.parking?.cost_per_month == null
+              ? property.parking?.type || "Not published"
+              : `${property.parking.type || "Parking"} • ${property.parking.cost_per_month === 0 ? "Included" : `${formatCurrency(property.parking.cost_per_month)}/mo`}`
+          )}</strong>
+        </div>
+        <div class="rent-mini-stat">
+          <span>Pet policy</span>
+          <strong>${escapeHtml(property.pet_policy?.allowed ? "Pets allowed" : "Not published")}</strong>
+        </div>
+        <div class="rent-mini-stat">
+          <span>Lease terms</span>
+          <strong>${escapeHtml(property.lease_terms || "Not published")}</strong>
+        </div>
+        <div class="rent-mini-stat">
+          <span>Amenities</span>
+          <strong>${escapeHtml(amenityPreview || "Not published")}</strong>
+        </div>
+      </div>
+
+      <div class="project-compare-table rent-building-table">
+        <table>
+          <thead>
+            <tr>
+              <th>Unit type</th>
+              <th>Available units</th>
+              <th>SF range</th>
+              <th>Rent range</th>
+              <th>Price / SF range</th>
+              <th>Availability / notes</th>
+            </tr>
+          </thead>
+          <tbody>${unitRows}</tbody>
+        </table>
+      </div>
+
+      ${
+        detailItems
+          ? `
+            <details class="rent-detail-toggle">
+              <summary>Floor-plan and availability notes</summary>
+              <ul class="rent-detail-list">${detailItems}</ul>
+            </details>
+          `
+          : ""
+      }
+
+      <p class="comp-note">${escapeHtml(property.notes || "No additional building notes provided.")} Verified ${escapeHtml(String(property.data_verified || ""))}.</p>
+    </div>
+  `;
+}
+
+function renderRentComparableSection(properties) {
+  const totalAvailable = properties.reduce((total, property) => total + sumUnitsAvailable(property), 0);
+  const totalUnits = properties.reduce((total, property) => total + (Number(property.total_units) || 0), 0);
+  const years = Array.from(new Set(properties.map((property) => property.year_built).filter(Boolean))).sort();
+  const summaryCards = [
+    { key: "Comparable set", value: `${properties.length} buildings`, supporting: "All five are newly constructed Santa Clara apartment assets." },
+    { key: "Available units", value: `${formatNumber(totalAvailable)} / ${formatNumber(totalUnits)}`, supporting: "Current available units out of the total units across the five comparable buildings." },
+    { key: "Delivery window", value: years.length ? `${years[0]}-${years[years.length - 1]}` : "Current", supporting: "New supply captured in the comp set." },
+    { key: "Layouts covered", value: "Studio-3BR", supporting: "Summary table rolls pricing by canonical unit type." }
+  ];
+
+  return `
+    <div class="project-stack rent-comps-stack">
+      ${renderCards(summaryCards)}
+      ${renderRentCompSummary(properties)}
+      <div class="project-section-header rent-section-header">
+        <h3 class="project-subsection-title">Buildings grouped by comparable</h3>
+      </div>
+      ${properties.map(renderRentCompBuilding).join("")}
+    </div>
+  `;
+}
+
+async function hydrateRentComparableSection() {
+  const section = getRentCompSection();
+  if (!section) return;
+
+  try {
+    const allProperties = embeddedRentCompData || await (async () => {
+      const response = await fetch(rentCompDataPath);
+      if (!response.ok) {
+        throw new Error(`Failed to load ${rentCompDataPath}: ${response.status}`);
+      }
+      return response.json();
+    })();
+    const properties = allProperties.filter(hasAvailableUnits);
+
+    section.paragraphs = [
+      "This rent comparable page focuses on newly constructed Santa Clara apartment buildings with current availability, sourced from Apartments.com listings.",
+      "Available units are grouped by building, with a unit-type summary table at the top to show the current asking-rent and price-per-square-foot range by studio, one-bedroom, two-bedroom, and three-bedroom layouts."
+    ];
+    section.bullets = [
+      "Price per square foot is calculated from each unit-type range using max rent / max SF and min rent / min SF, then reported as the min and max of those two values.",
+      "These are Apartments.com asking-rent snapshots and advertised square-footage ranges, not executed lease comps or concession-adjusted effective rents.",
+      "Buildings with no units currently available are excluded from the comp set and from the summary statistics."
+    ];
+    section.customHtml = renderRentComparableSection(properties);
+    section.sources = buildRentCompSources(properties);
+  } catch (error) {
+    section.customHtml = `
+      <div class="empty-state">
+        Rent comparable data could not be loaded from ${escapeHtml(rentCompDataPath)}. ${escapeHtml(error.message || "Unknown error.")}
+      </div>
+    `;
+  }
 }
 
 function renderMeta() {
@@ -81,11 +482,13 @@ function renderFigures(figures) {
 function renderParagraphs(paragraphs) {
   if (!paragraphs || !paragraphs.length) return "";
   return paragraphs
-    .map((paragraph) =>
-      typeof paragraph === "object" && paragraph.html
-        ? `<p>${paragraph.html}</p>`
-        : `<p>${escapeHtml(paragraph)}</p>`
-    )
+    .map((paragraph) => {
+      if (typeof paragraph === "object" && paragraph.html) {
+        const className = paragraph.className ? ` class="${escapeHtml(paragraph.className)}"` : "";
+        return `<p${className}>${paragraph.html}</p>`;
+      }
+      return `<p>${escapeHtml(paragraph)}</p>`;
+    })
     .join("");
 }
 
@@ -274,16 +677,23 @@ function initAssessmentCharts() {
         data: series.values,
         borderColor: series.color,
         backgroundColor: series.color,
-        borderWidth: 1,
-        borderRadius: 6,
-        borderSkipped: false,
-        barPercentage: 0.82,
-        categoryPercentage: 0.72
+        borderWidth: 3.5,
+        pointRadius: 5,
+        pointHoverRadius: 7,
+        pointHitRadius: 10,
+        pointBackgroundColor: "#ffffff",
+        pointBorderColor: series.color,
+        pointBorderWidth: 2.5,
+        pointHoverBackgroundColor: "#ffffff",
+        pointHoverBorderColor: series.color,
+        pointHoverBorderWidth: 3,
+        spanGaps: false,
+        tension: 0.18
       }));
 
       // eslint-disable-next-line no-new
       new window.Chart(canvas, {
-        type: "bar",
+        type: "line",
         data: {
           labels: chart.years,
           datasets
@@ -333,7 +743,9 @@ function initAssessmentCharts() {
                 color: "#6f6559",
                 font: {
                   size: 12
-                }
+                },
+                maxRotation: 45,
+                minRotation: 45
               },
               border: {
                 color: "#cabda6"
@@ -465,7 +877,12 @@ function bindTabs() {
   }
 }
 
-renderMeta();
-renderSections();
-initAssessmentCharts();
-bindTabs();
+async function initApp() {
+  renderMeta();
+  await hydrateRentComparableSection();
+  renderSections();
+  initAssessmentCharts();
+  bindTabs();
+}
+
+initApp();
