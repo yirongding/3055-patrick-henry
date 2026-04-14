@@ -17,8 +17,5 @@
   "bugs": {
     "url": "https://github.com/yirongding/3055-patrick-henry/issues"
   },
-  "homepage": "https://github.com/yirongding/3055-patrick-henry#readme",
-  "dependencies": {
-    "@mendable/firecrawl-js": "^4.18.2"
-  }
+  "homepage": "https://github.com/yirongding/3055-patrick-henry#readme"
 }

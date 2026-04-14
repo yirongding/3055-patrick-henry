@@ -402,7 +402,7 @@ async function hydrateRentComparableSection() {
     const properties = allProperties.filter(hasAvailableUnits);
 
     section.paragraphs = [
-      "This rent comparable page focuses on newly constructed Santa Clara apartment buildings with current availability, sourced from Apartments.com listings.",
+      "This rent comparable page focuses on newly constructed Santa Clara apartment buildings with current availability, sourced from Apartments.com listings. Data as of April 13, 2026 — available units may change.",
       "Available units are grouped by building, with a unit-type summary table at the top to show the current asking-rent and price-per-square-foot range by studio, one-bedroom, two-bedroom, and three-bedroom layouts."
     ];
     section.bullets = [
