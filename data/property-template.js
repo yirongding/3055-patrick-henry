@@ -494,7 +494,7 @@ window.REPORT_DATA = {
 
           <div class="project-profile green">
             <h4>3100-3118 Patrick Henry Drive</h4>
-            <div class="project-kicker">Immediately adjacent Patrick Henry corridor land trade and redevelopment reference.</div>
+            <div class="project-kicker">Immediately adjacent Patrick Henry corridor land trade and redevelopment reference. 0.1 mi from subject.</div>
             <div class="project-detail-grid">
               <div class="project-detail"><strong>Address / location</strong>3100-3118 Patrick Henry Dr, Santa Clara, CA 95054; Marriott Business Park.</div>
               <div class="project-detail"><strong>Developer / sponsor</strong>JEMCOR Development Partners.</div>
@@ -525,14 +525,14 @@ window.REPORT_DATA = {
 
           <div class="project-profile green">
             <h4>3000 Patrick Henry Drive</h4>
-            <div class="project-kicker">Same-corridor residential conversion precedent on a similarly sized 2.52-acre parcel.</div>
+            <div class="project-kicker">Same-corridor residential conversion precedent on a similarly sized 2.52-acre parcel. 0.1 mi from subject.</div>
             <div class="project-detail-grid">
               <div class="project-detail"><strong>Address / location</strong>3000 Patrick Henry Dr, Santa Clara, CA 95054; CoStar report is filed as 3000-3030 Patrick Henry Dr for the same property.</div>
               <div class="project-detail"><strong>Developer / sponsor</strong>SummerHill Apartment Communities / Pactron Ventures.</div>
               <div class="project-detail"><strong>Property type / use</strong>Approved mixed-use residential redevelopment replacing an older flex / R&amp;D property.</div>
               <div class="project-detail"><strong>Status</strong>Approved.</div>
               <div class="project-detail"><strong>Delivery timeline</strong>Not published.</div>
-              <div class="project-detail"><strong>Latest sale date</strong>February 2022 transfer recorded in CoStar sales history.</div>
+              <div class="project-detail"><strong>Latest sale date</strong>February 2022 transfer recorded in CoStar sales history; price not published.</div>
               <div class="project-detail"><strong>Latest known sale date</strong>August 2011 for the prior flex property.</div>
               <div class="project-detail"><strong>Latest known sold price</strong>$5,175,000 for the prior flex property.</div>
               <div class="project-detail"><strong>Total unit count</strong>307 dwelling units.</div>
@@ -557,7 +557,7 @@ window.REPORT_DATA = {
 
           <div class="project-profile green">
             <h4>4590 Patrick Henry Drive</h4>
-            <div class="project-kicker">Proposed multifamily benchmark close to the subject with published scale, sponsor, and timing.</div>
+            <div class="project-kicker">Proposed multifamily benchmark close to the subject with published scale, sponsor, and timing. 0.2 mi from subject.</div>
             <div class="project-detail-grid">
               <div class="project-detail"><strong>Address / location</strong>4590 Patrick Henry Dr, Santa Clara, CA 95054.</div>
               <div class="project-detail"><strong>Developer / sponsor</strong>Walnut Hill Capital LLC; Kasa Partners; BAR Architects.</div>
@@ -588,7 +588,7 @@ window.REPORT_DATA = {
 
           <div class="project-profile green">
             <h4>2518 Mission College Boulevard / Santa Clara Park Residential Project</h4>
-            <div class="project-kicker">Large-scale residential conversion of an office campus in the Freedom Circle Focus Area.</div>
+            <div class="project-kicker">Large-scale residential conversion of an office campus in the Freedom Circle Focus Area. 1.1 mi from subject.</div>
             <div class="project-detail-grid">
               <div class="project-detail"><strong>Address / location</strong>2518 Mission College Blvd, Santa Clara, CA 95054.</div>
               <div class="project-detail"><strong>Developer / sponsor</strong>Irvine Company.</div>
@@ -648,7 +648,7 @@ window.REPORT_DATA = {
                   </tr>
                   <tr>
                     <td>3000 Patrick Henry</td>
-                    <td>Feb. 2022: Not published</td>
+                    <td>Feb. 2022: Price not published</td>
                     <td>Aug. 2011: $5,175,000</td>
                     <td>35,200 SF prior flex building</td>
                     <td>$147.02/SF<div class="comp-cell-note">Based on previous known sale.</div></td>
@@ -707,7 +707,7 @@ window.REPORT_DATA = {
                   <div>
                     <h4>Related Santa Clara</h4>
                     <div class="project-detail-grid">
-                      <div class="project-detail"><strong>Address / location</strong>5155 Stars &amp; Stripes Drive, adjacent to Levi's Stadium.</div>
+                      <div class="project-detail"><strong>Address / location</strong>5155 Stars &amp; Stripes Drive, adjacent to Levi's Stadium. 1.5 mi from subject.</div>
                       <div class="project-detail"><strong>Developer / sponsor</strong>Related Companies in partnership with the City of Santa Clara.</div>
                       <div class="project-detail"><strong>Program</strong>9.2M SF mixed-use district including 1,680 residential units, 700 hotel rooms, about 5M SF office, retail / entertainment, and a 30-acre city park.</div>
                       <div class="project-detail"><strong>Status</strong>Multi-phased development with construction impacts and road work described by the city as ongoing.</div>
@@ -725,7 +725,7 @@ window.REPORT_DATA = {
                   <div>
                     <h4>Mission Point by Kylli</h4>
                     <div class="project-detail-grid">
-                      <div class="project-detail"><strong>Address / location</strong>3005 Democracy Way, Santa Clara, on 46 acres.</div>
+                      <div class="project-detail"><strong>Address / location</strong>3005 Democracy Way, Santa Clara, on 46 acres. 0.7 mi from subject.</div>
                       <div class="project-detail"><strong>Developer / sponsor</strong>Kylli, Inc.</div>
                       <div class="project-detail"><strong>Program</strong>Approved mixed-use district with about 1,800 multifamily units, about 3.0M SF office / lab, about 100,000 SF retail, childcare, and park / trail / open-space infrastructure.</div>
                       <div class="project-detail"><strong>Status</strong>Approved by City Council on Nov. 19, 2024.</div>
@@ -1205,37 +1205,125 @@ window.REPORT_DATA = {
     {
       id: "methodology-sources",
       label: "Methodology & Sources",
-      title: "Methodology and sources",
-      bullets: [
-        "This draft is organized into 14 sections with source references listed on each corresponding page.",
-        "Property facts, ownership, tax, and current asset context were cross-checked against the local workbook and local CoStar exports dated April 8, 2026.",
-        "Planning and project precedent sections prioritize City of Santa Clara project pages and adopted-plan materials.",
-        "Current market sections use local CoStar submarket reports and CBRE Bay Area multifamily figures reviewed for this update.",
-        "Where sources conflicted, the conflict is shown directly instead of being averaged away."
-      ],
-      table: {
-        columns: ["Open item", "Notes", "Current status"],
-        rows: [
-          ["Final building size", "Source conflict between 68,075 SF and 70,520 SF.", "Open: 68,075 SF vs. 70,520 SF."],
-          ["Current occupancy and rent roll", "Current occupancy and lease information remain incomplete.", "Open."],
-          ["Final parking count", "Source conflict between 140 and 240 stalls.", "Open: 140 vs. 240."],
-          ["Parcel-specific entitlement path", "Parcel-specific city and counsel confirmation still needed.", "Open for final city / counsel confirmation."],
-          ["Additional land-sale comp set", "No expanded land-sale comp set included yet.", "Open."],
-          ["Standardized distance matrix", "Distance matrix not yet added.", "Open."],
-          ["FAA / height confirmation", "No project-specific FAA / height confirmation included.", "Recommended." ]
-        ]
-      },
-      notes: [
-        "Run `node scripts/audit-template.js` before sharing to catch accidental carryover language.",
-        "The nearby 3100-3118 Patrick Henry land sale is included under neighboring projects and scenario references."
-      ],
-      sources: [
-        { label: "CompRedux workbook", url: "./sources-supporting-docs/CompRedux-3055-PATRICK-HENRY-DR-SANTA-CLARA-CA-95054-2026-04-08.xlsx" },
-        { label: "CoStar property summary PDF", url: "./sources-supporting-docs/Costar Reports/property-summary.pdf" },
-        { label: "CoStar property analytics PDF", url: "./sources-supporting-docs/Costar Reports/property-analytics.pdf" },
-        { label: "CoStar Santa Clara Multi-Family Submarket report", url: "./sources-supporting-docs/Costar Reports/Santa Clara-MultiFamily-Submarket-2026-04-12.pdf" },
-        { label: "Patrick Henry Drive Specific Plan", url: "https://www.santaclaraca.gov/our-city/departments-a-f/community-development/planning-division/specific-plans/patrick-henry-drive" }
-      ]
+      title: "Sources",
+      lede: "All sources used in this report, organized by section.",
+      customHtml: `
+        <div class="sources-index">
+
+          <div class="sources-group-block">
+            <h3 class="sources-group-title">Property overview</h3>
+            <ul class="sources-group-list">
+              <li><a href="./sources-supporting-docs/CompRedux-3055-PATRICK-HENRY-DR-SANTA-CLARA-CA-95054-2026-04-08.xlsx" target="_blank" rel="noopener">CompRedux workbook — 3055 Patrick Henry (April 8, 2026)</a></li>
+              <li><a href="./sources-supporting-docs/Costar Reports/property-summary.pdf" target="_blank" rel="noopener">CoStar property summary PDF</a></li>
+              <li><a href="./sources-supporting-docs/Costar Reports/property-sales.pdf" target="_blank" rel="noopener">CoStar property sales PDF</a></li>
+            </ul>
+          </div>
+
+          <div class="sources-group-block">
+            <h3 class="sources-group-title">Location overview</h3>
+            <ul class="sources-group-list">
+              <li><a href="./sources-supporting-docs/old-om-3055patrickhenry.pdf" target="_blank" rel="noopener">2023 Offering Memorandum (CBRE)</a></li>
+              <li><a href="https://www.rivermarkvillage.com/" target="_blank" rel="noopener">Rivermark Village</a></li>
+            </ul>
+          </div>
+
+          <div class="sources-group-block">
+            <h3 class="sources-group-title">Zoning & policy</h3>
+            <ul class="sources-group-list">
+              <li><a href="https://www.santaclaraca.gov/our-city/departments-a-f/community-development/planning-division/specific-plans/patrick-henry-drive" target="_blank" rel="noopener">Patrick Henry Drive Specific Plan — City of Santa Clara</a></li>
+              <li><a href="https://www.santaclaraca.gov/our-city/departments-g-z/public-works/engineering/land-property-development/patrick-henry-drive-specific-plan-infrastructure-impact-fee" target="_blank" rel="noopener">Patrick Henry Drive infrastructure impact fee page</a></li>
+              <li><a href="https://www.santaclaraca.gov/our-city/departments-a-f/community-development/housing-community-services-division/affordable-housing-ordinance" target="_blank" rel="noopener">City of Santa Clara Affordable Housing Ordinance</a></li>
+            </ul>
+          </div>
+
+          <div class="sources-group-block">
+            <h3 class="sources-group-title">Risks & due diligence</h3>
+            <ul class="sources-group-list">
+              <li><a href="./sources-supporting-docs/CompRedux-04-12.pdf" target="_blank" rel="noopener">CompRedux report (April 12, 2026)</a></li>
+              <li><a href="./sources-supporting-docs/TaxBill APN 104-04-136.pdf" target="_blank" rel="noopener">Santa Clara County secured tax bill — APN 104-04-136</a></li>
+              <li><a href="https://www.conservation.ca.gov/cgs/sh/seismic-hazard-zones" target="_blank" rel="noopener">California Seismic Hazard Zones — CA Conservation</a></li>
+            </ul>
+          </div>
+
+          <div class="sources-group-block">
+            <h3 class="sources-group-title">Current use market</h3>
+            <ul class="sources-group-list">
+              <li><a href="./sources-supporting-docs/Costar Reports/property-analytics.pdf" target="_blank" rel="noopener">CoStar property analytics PDF</a></li>
+              <li><a href="./sources-supporting-docs/Costar Reports/North Santa Clara-Industrial-Submarket-2026-04-08.pdf" target="_blank" rel="noopener">CoStar North Santa Clara Industrial Submarket report (April 8, 2026)</a></li>
+            </ul>
+          </div>
+
+          <div class="sources-group-block">
+            <h3 class="sources-group-title">Multifamily market</h3>
+            <ul class="sources-group-list">
+              <li><a href="./sources-supporting-docs/Costar Reports/Santa Clara-MultiFamily-Submarket-2026-04-12.pdf" target="_blank" rel="noopener">CoStar Santa Clara Multi-Family Submarket report (April 12, 2026)</a></li>
+              <li><a href="https://www.cbre.com/insights/figures/bay-area-multifamily-figures-q4-2025" target="_blank" rel="noopener">CBRE Bay Area Multifamily Figures Q4 2025</a></li>
+            </ul>
+          </div>
+
+          <div class="sources-group-block">
+            <h3 class="sources-group-title">Nearby projects & comps</h3>
+            <ul class="sources-group-list">
+              <li><a href="https://www.citybiz.co/article/787736/berkadia-arranges-sale-of-residential-development-site-near-levis-stadium-in-santa-clara-california/" target="_blank" rel="noopener">Berkadia / citybiz — 3100-3118 Patrick Henry sale coverage</a></li>
+              <li><a href="https://traded.co/deals/california/office/sale/3100-3118-patrick-henry-drive/" target="_blank" rel="noopener">Traded — 3100-3118 Patrick Henry sale summary</a></li>
+              <li><a href="./sources-supporting-docs/Neighboring projects &amp; comps/3100-3118 Patrick Henry Dr.pdf" target="_blank" rel="noopener">3100-3118 Patrick Henry CoStar report</a></li>
+              <li><a href="./sources-supporting-docs/Neighboring projects &amp; comps/Sale History/3100-3118 Patrick Henry Dr.xlsx" target="_blank" rel="noopener">CoStar sales history — 3100-3118 Patrick Henry Drive</a></li>
+              <li><a href="https://www.santaclaraca.gov/Home/Components/BusinessDirectory/BusinessDirectory/493/2495?npage=3" target="_blank" rel="noopener">3000 Patrick Henry — City of Santa Clara project page</a></li>
+              <li><a href="./sources-supporting-docs/Neighboring projects &amp; comps/3000-3030 Patrick Henry Dr.pdf" target="_blank" rel="noopener">3000 Patrick Henry CoStar report</a></li>
+              <li><a href="./sources-supporting-docs/Neighboring projects &amp; comps/Sale History/3000 Patrick Henry Dr.xlsx" target="_blank" rel="noopener">CoStar sales history — 3000 Patrick Henry Drive</a></li>
+              <li><a href="https://www.santaclaraca.gov/Home/Components/BusinessDirectory/BusinessDirectory/513/2495?fsiteid=1&amp;npage=4" target="_blank" rel="noopener">4590 Patrick Henry — City of Santa Clara project page</a></li>
+              <li><a href="./sources-supporting-docs/Neighboring projects &amp; comps/4590 Patrick Henry Dr - Proposed.pdf" target="_blank" rel="noopener">4590 Patrick Henry proposed CoStar report</a></li>
+              <li><a href="./sources-supporting-docs/Neighboring projects &amp; comps/4590 Patrick Henry Dr - old property.pdf" target="_blank" rel="noopener">4590 Patrick Henry prior property CoStar report</a></li>
+              <li><a href="./sources-supporting-docs/Neighboring projects &amp; comps/Sale History/4590 Patrick Henry Dr.xlsx" target="_blank" rel="noopener">CoStar sales history — 4590 Patrick Henry Drive</a></li>
+              <li><a href="https://www.santaclaraca.gov/Home/Components/BusinessDirectory/BusinessDirectory/519/2571?npage=2" target="_blank" rel="noopener">2518 Mission College — City of Santa Clara project page</a></li>
+              <li><a href="./sources-supporting-docs/Neighboring projects &amp; comps/2518 Mission College Blvd - proposed.pdf" target="_blank" rel="noopener">2518 Mission College proposed CoStar report</a></li>
+              <li><a href="./sources-supporting-docs/Neighboring projects &amp; comps/2518 Mission College Blvd - old property.pdf" target="_blank" rel="noopener">2518 Mission College prior property CoStar report</a></li>
+              <li><a href="./sources-supporting-docs/Neighboring projects &amp; comps/Sale History/2518 Mission College Blvd.xlsx" target="_blank" rel="noopener">CoStar sales history — 2518 Mission College Boulevard</a></li>
+              <li><a href="./sources-supporting-docs/Neighboring projects &amp; comps/Sale History/3055-patrick-henry.xlsx" target="_blank" rel="noopener">CoStar sales history — 3055 Patrick Henry Drive</a></li>
+              <li><a href="https://www.santaclaraca.gov/business-development/related-santa-clara" target="_blank" rel="noopener">Related Santa Clara — City of Santa Clara</a></li>
+              <li><a href="https://www.santaclaraca.gov/Home/Components/BusinessDirectory/BusinessDirectory/245/2495?alpha=K" target="_blank" rel="noopener">Mission Point by Kylli — City of Santa Clara</a></li>
+              <li><a href="./sources-supporting-docs/Neighboring projects &amp; comps/costar 30mi radius flex property comps.xlsx" target="_blank" rel="noopener">CoStar 10-mile radius flex property comps</a></li>
+            </ul>
+          </div>
+
+          <div class="sources-group-block">
+            <h3 class="sources-group-title">Tax-assessed value analysis</h3>
+            <ul class="sources-group-list">
+              <li><a href="./sources-supporting-docs/Tax info/CompRedux/3055-PATRICK-HENRY-DR-SANTA-CLARA-950541815-2026-04-14.xlsx" target="_blank" rel="noopener">CompRedux — 3055 Patrick Henry assessed value (April 14, 2026)</a></li>
+              <li><a href="./sources-supporting-docs/Tax info/CompRedux/3000-PATRICK-HENRY-DR-SANTA-CLARA-950541814-2026-04-14.xlsx" target="_blank" rel="noopener">CompRedux — 3000 Patrick Henry assessed value (April 14, 2026)</a></li>
+              <li><a href="./sources-supporting-docs/Tax info/CompRedux/3100-PATRICK-HENRY-DR-SANTA-CLARA-950541814-2026-04-14.xlsx" target="_blank" rel="noopener">CompRedux — 3100-3118 Patrick Henry assessed value (April 14, 2026)</a></li>
+              <li><a href="./sources-supporting-docs/Tax info/CompRedux/4590-PATRICK-HENRY-DR-SANTA-CLARA-950541817-2026-04-14.xlsx" target="_blank" rel="noopener">CompRedux — 4590 Patrick Henry assessed value (April 14, 2026)</a></li>
+              <li><a href="./sources-supporting-docs/Tax info/CompRedux/2518-Misson-college-blvd.xlsx" target="_blank" rel="noopener">CompRedux — 2518 Mission College assessed value</a></li>
+            </ul>
+          </div>
+
+          <div class="sources-group-block">
+            <h3 class="sources-group-title">Condo sale comps</h3>
+            <ul class="sources-group-list">
+              <li><a href="https://search.mlslistings.com/DE.asp?ID=DE-110058988797&amp;L=1&amp;eml=RGluZ3lpcm9uZ2R5ckBnbWFpbC5jb20=" target="_blank" rel="noopener">MLS condo comp listings (ZIP 95054, since Jan 1, 2026)</a></li>
+              <li><a href="./sources-supporting-docs/Condo Sale Comps  .numbers" target="_blank" rel="noopener">Condo sale comp data file (Numbers)</a></li>
+            </ul>
+          </div>
+
+          <div class="sources-group-block">
+            <h3 class="sources-group-title">Rent comparables</h3>
+            <ul class="sources-group-list">
+              <li><a href="https://www.apartments.com/" target="_blank" rel="noopener">Apartments.com</a></li>
+            </ul>
+          </div>
+
+          <div class="sources-group-block">
+            <h3 class="sources-group-title">Development vision precedents</h3>
+            <ul class="sources-group-list">
+              <li><a href="https://www.housingwire.com/articles/church-land-housing-laws/" target="_blank" rel="noopener">HousingWire — Faith-owned land housing policy</a></li>
+              <li><a href="https://www.ocregister.com/2026/01/22/laguna-beach-church-revamps-affordable-housing-project/" target="_blank" rel="noopener">Orange County Register — Laguna Beach church revamps affordable housing project</a></li>
+              <li><a href="https://www.latimes.com/socal/daily-pilot/news/story/2026-01-23/laguna-beach-church-reworks-scales-down-affordable-housing-project" target="_blank" rel="noopener">Los Angeles Times / Daily Pilot — Laguna Beach church reworks, scales down affordable housing project</a></li>
+            </ul>
+          </div>
+
+        </div>
+      `,
+      sources: []
     }
   ]
 };

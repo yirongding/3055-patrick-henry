@@ -429,6 +429,51 @@ th {
   margin-top: 18px;
 }
 
+/* Sources index page */
+.sources-index {
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+  max-width: 760px;
+}
+
+.sources-group-block {
+  border-top: 1px solid var(--line);
+  padding-top: 16px;
+}
+
+.sources-group-title {
+  font-size: 13px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--muted);
+  margin: 0 0 10px;
+}
+
+.sources-group-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.sources-group-list li {
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+.sources-group-list a {
+  color: var(--accent);
+  text-decoration: none;
+}
+
+.sources-group-list a:hover {
+  text-decoration: underline;
+}
+
 .precedent-wrap {
   max-width: 1040px;
   margin: 0 auto;
