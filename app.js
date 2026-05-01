@@ -441,6 +441,7 @@ function renderMeta() {
     <div>${escapeHtml(contact.company || "Company")}</div>
     <div>${escapeHtml(contact.email || "email@example.com")}</div>
     <div>${escapeHtml(contact.phone || "(000) 000-0000")}</div>
+    <div><a href="${escapeHtml(contact.websiteUrl || "#")}" target="_blank" rel="noopener">${escapeHtml(contact.website || "website.com")}</a></div>
     <div><a href="${escapeHtml(contact.linkUrl || "#")}" target="_blank" rel="noopener">${escapeHtml(contact.linkLabel || "Add contact link")}</a></div>
   `;
 }
