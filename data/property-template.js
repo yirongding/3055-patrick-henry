@@ -16,7 +16,7 @@ window.REPORT_DATA = {
       company: "Keller Williams Advisors",
       email: "Alina@SiertGroup.com",
       phone: "(408) 712-7692",
-      website: "siertgroup.com",
+      website: "SiertGroup.com",
       websiteUrl: "https://siertgroup.com",
       linkLabel: "Connect with me on LinkedIn →",
       linkUrl: "https://www.linkedin.com/in/alinasiert"
